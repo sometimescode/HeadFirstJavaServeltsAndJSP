@@ -1,0 +1,64 @@
+From 64/913
+To contrast what's written there with what I actually did
+1) Built it here
+2) I copy-pasted. Ignore the red text. VS doesn't know what it is. Had to change the quote characters after pasting because they
+caused an illegal character error to pop-up when running Step 5.
+Error was -> illegal character: '\u00a1'
+3) Copy-pasted. 
+Old
+    Error when running as is. 
+        org.apache.commons.digester.Digester fatalError
+        SEVERE: Parse Fatal Error at line 1 column 15: Invalid byte 1 of 1-byte UTF-8 sequence.
+        org.apache.xerces.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.  
+    - Changed the encoding from EUC-JP to UTF-8. This is just because I'm using VSCode and that's my default encoding.
+        It was using different quote characters again that turned to question mark symbols. Replaced it with proper quotes.
+        I ran tomcat prior to discovering this change and it was outputting an error. 
+    After all that, got another error.
+        org.apache.commons.digester.Digester fatalError
+        SEVERE: Parse Fatal Error at line 1 column 45: Invalid encoding name "ISO-8851-1".
+        org.xml.sax.SAXParseException: Invalid encoding name "ISO-8851-1".
+    - This is referring to the first line "<?xml version="1.0" encoding="ISO-8859-1" ?>" in web.xml. Changed "ISO-8859-1" to "UTF-8".
+    After all that, got a two errors.
+        org.apache.commons.digester.Digester error
+        SEVERE: Parse Error at line 5 column 16: Document root element "web-app", must match DOCTYPE root "null".
+        org.xml.sax.SAXParseException: Document root element "web-app", must match DOCTYPE root "null".
+
+        { stuff in between }
+
+        org.apache.commons.digester.Digester error
+        SEVERE: Parse Error at line 5 column 16: Document is invalid: no grammar found.
+        org.xml.sax.SAXParseException: Document is invalid: no grammar found.
+    Stuck here.
+    I was checking Artimus 1.1 and it was using 2.2. This might be related to servlet spec supported by the Tomcat version. And I'm
+    not using the appropriate version of tomcat for the servlet spec the web.xml is using.
+    https://tomcat.apache.org/whichversion.html
+    This link above says Servlet Spec 2.4 REQUIRES a MINIMUM TOMCAT VERSION 5.0.0.
+    There was no problem with Artimus because it was 2.2 and that requires a minimum of 3.3x (and we were using 4x).
+    So I'll try this out with the latest in 5 - 5.5.36. Migrate this project's folder from 4.1.40 to 5.5.36.
+
+New
+    Using 5.5.36 did fix the issue above. There's a bunch of what looks like error messages if you scroll up, but it looks like the server
+    runs fine. The only change that I made was the encoding to UTF-8 in VSCode (which is a VSCode related change because I have it set here
+    to EUC-JP by default) and then replaced the first line in web.xml (the web xml declaration)'s encoding attribute from "ISO-8851-1" to "UTF-8".
+4) Built it there
+5) From the terminal here
+Old
+    Command was -> javac -classpath C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-4.1.40\common\lib\servlet.jar -d classes src/Ch1Servlet.java
+    Check this directory's classes folder for the compiled Ch1Servlet.class.
+
+New
+    Command was -> javac -classpath C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar -d classes src/Ch1Servlet.java
+    Check this directory's classes folder for the compiled Ch1Servlet.class.
+
+6) Copied the files as instructed
+7) Run startup.bat from the tomcat directory
+8) Go to http://localhost:8080/ch1/Serv1
+Note
+    http://localhost:8080/manager/html is a nice way to access the webapps under the tomcat directory.
+    Added "manager-ui" role to a user in
+    "C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\conf\tomcat-users.xml"
+    But in this case, it's sort of pointless since it redirects us to
+    http://localhost:8080/ch1/
+    And since whatever this is called is not set-up to redirect to a default file, you'll get HTTP Status 404.
+    So make sure to specify Serv1 at the end.
+9) Don't forget to shutdown and restart tomcat when you update the servlet's class file or the web.xml.
