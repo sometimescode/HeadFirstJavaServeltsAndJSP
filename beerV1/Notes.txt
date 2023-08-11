@@ -1,0 +1,280 @@
+Rather than copy pasting this time around, just going to try and type along. Might help recall better. Probably won't. Definitely won't.
+
+Re: <select name="color" size="1">
+The book asks you about the size attribute. All it does is sets the max amount of options your select will show.
+
+Here's the compilation command:
+    javac -classpath C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar:classes:. -d classes src/com/example/web/BeerSelect.java
+
+I don't understand why they're introducing ":classes:." here. Didn't need it in ch1 project. Also doesn't work. Using ";classes:." also doesn't compile.
+Here's ch1's command for reference
+    javac -classpath C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar -d classes src/Ch1Servlet.java
+
+USING THIS. I will ignore the command they gave. And will continue using the previous one, but modified for this.
+    javac -classpath C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar -d classes src/com/example/web/BeerSelect.java
+
+URL:
+    http://localhost:8080/Beer-v1/form.html
+
+
+Regarding Testing:
+The book talks about making your own tests. I wish they gave us an expected directory hierarchy for it.
+According to this, which uses maven
+https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html
+I'd have to restructure the project.
+
+For now I think I won't follow this. Because the transfer mechanism from development to deployment environment isn't automated,
+I don't think the tests just being in a random folder will matter. But in the next project, I'll probably include it and break
+off from the structure that's being used in the book.
+
+I'm following the actual structure used in the maven link above for the tests.
+
+I'll be using JUNIT 4.
+https://github.com/junit-team/junit4/wiki/Download-and-Install
+Downloading the 2 jars. Adding them under Referenced Libraries under JAVA PROJECTS under VS Code's explorer.
+The links to the plain-old jar is annoying. I had to time it so that the interface wouldn't update so I got the option to download the junit.jar.
+Hamcrest was easy though.
+
+In testing out JUNIT 4.
+https://github.com/junit-team/junit4/wiki/Getting-started
+Created a junit folder under src\com\example
+From cmd:
+C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src\com\example\junit>javac Calculator.java
+This compiles the Calculator.java into a new Calculator.class file and puts it under the same directory.
+
+PLEASE REMEMBER TO RUN THE COMMAND FROM THE CORRECT DIRECTORY. OTHERWISE IT WON'T FIND THE FILES SINCE WE'RE USING RELATIVE PATHING.
+
+Regarding previous command
+    javac -classpath C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar -d classes src/com/example/web/BeerSelect.java
+From chatgpt
+javac: This is the Java Compiler command. It's used to compile Java source code files into bytecode that can be executed by the Java Virtual Machine (JVM).
+-classpath: This option specifies the classpath, which is a list of directories and JAR files that the compiler uses to find necessary classes and libraries. 
+In your case, you're specifying the path to the servlet-api.jar file, which is needed to compile classes that use the Servlet API.
+C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar: This is the path to the servlet-api.jar file.
+
+-d: This option specifies the destination directory where the compiled bytecode (.class files) will be stored.
+classes: This is the destination directory for the compiled classes.
+src/com/example/web/BeerSelect.java: This is the path to the source code file you want to compile. 
+It specifies the location of the BeerSelect.java file within your project's source code directory structure.
+In summary, the command is telling the Java Compiler (javac) to compile the BeerSelect.java source code file, using the servlet-api.jar 
+library from the specified classpath, and store the compiled bytecode in the classes directory. 
+This is a common compilation command for Java web projects, where the servlet-api.jar is required to compile classes that use servlets and related web technologies.
+
+Back to testing out JUNIT4.
+After copying the CalculatorTest.java, VS Code has the option to immediately run the test by clicking on the green arrow. 
+Probably adding the 2 jars under Referenced Libraries caused VS to automatically identify the test.
+
+But the instructions in Getting-started talk about compiling the test class, so I will still do that.
+For reference, this is where I stored my junit jars. I'll need these.
+"C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\hamcrest-core-1.3.jar"
+"C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\junit-4.13.2.jar"
+
+There has to be an easier way to do this. I'm not spacing it out because it wouldn't be a valid command in the cmd.
+javac -cp C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar;C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src\com\example\junit;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\junit-4.13.2.jar;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\hamcrest-core-1.3.jar Calculator.java CalculatorTest.java
+Because CalculatorTest.java requires Calculator.java, I need to include Calculator as well and whatever classpath it needs.
+
+Try this again based on further understanding.
+javac -cp C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src\com\example\junit\Calculator.class;C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src\com\example\junit;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\junit-4.13.2.jar;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\hamcrest-core-1.3.jar CalculatorTest.java
+
+It didn't compile. It still didn't recognize the Calculator class.
+After asking chatgpt,
+the explanation that it gave was that it was wrong to point to the class file directly.
+Instead, I should point to the root directory where the package structure starts. So end it at
+C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src
+that way, the command can recognize
+"package com.example.junit"
+and take care of any dependencies
+
+javac -cp C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\junit-4.13.2.jar;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\hamcrest-core-1.3.jar CalculatorTest.java
+Above command worked.
+
+I initially thought that I had to have Calculator.java compiled into Calculator.class so that the command above would run.
+But I tried running the command again after deleting Calculator.class and CalculatorTest.class, and it compiled both CalculatorTest (which was explicitly mentioned)
+and Calculator (which was not mentioned in the command, but IS A DEPENDENCY of CalculatorTest).
+
+According to chatgpt,
+Yes, when you compile a Java class that depends on another class (such as CalculatorTest depending on Calculator), the Java compiler will automatically 
+compile the required dependencies if they are not already compiled.
+In your case, when you compiled CalculatorTest.java, the compiler detected that CalculatorTest depends on Calculator. 
+Since Calculator.java was present in the same directory and needed to be compiled to satisfy the dependency, the compiler automatically compiled it as well.
+This is a convenient feature of the Java compiler that helps ensure that all necessary classes are compiled and up-to-date when you compile a particular class. 
+It helps you avoid having to manually compile each dependency separately.
+
+The reason why I can't just use the commands on the Getting-started page is because my jars aren't in the same folder. I'm glad it isn't. This has at least
+helped to improve my understanding of the javac command.
+
+Command used to run the test
+NOTE THAT I'M USING JAVA NOT JAVAC
+JAVAC gives me the ff error
+    "Class names, 'org.junit.runner.JUnitCore,CalculatorTest', are only accepted if annotation processing is explicitly requested"
+
+java -cp C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src\com\example\junit;C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\junit-4.13.2.jar;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\hamcrest-core-1.3.jar org.junit.runner.JUnitCore CalculatorTest
+Above gives me problems.
+Here's the conversation I had with chatgpt
+Me
+I still get the NoClassDefFoundError with the ff command
+java -cp C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src\com\example\junit;C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\junit-4.13.2.jar;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\hamcrest-core-1.3.jar org.junit.runner.JUnitCore CalculatorTest
+
+CalculatorTest.java and CalculatorTest.class is under (a) C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src\com\example\junit;
+I included (b) C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src;
+in case it needed to access the package.
+
+If it's only the former (a), I get the ff error:
+Exception in thread "main" java.lang.NoClassDefFoundError: CalculatorTest (wrong name: com/example/junit/CalculatorTest)
+If it's only the latter (b), I get the ff error:
+There was 1 failure:
+1) initializationError(org.junit.runner.JUnitCommandLineParseResult)
+java.lang.IllegalArgumentException: Could not find class [CalculatorTest]
+
+Chatgpt suggested I make sure that I start CMD from the ff directory:
+C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src
+I was initially deeper at C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1\src\com\example\junit
+
+Then the following command is used to compile the java source code
+javac -cp .;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\junit-4.13.2.jar;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\hamcrest-core-1.3.jar com\example\junit\CalculatorTest.java
+
+Which feels much better. Makes more sense. Why was I even that deep?
+
+Then this is the revised command to run the test
+java -cp .;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\junit-4.13.2.jar;C:\Users\reesa\OneDrive\Documents\Stack\jars\JUnit4\hamcrest-core-1.3.jar org.junit.runner.JUnitCore com.example.junit.CalculatorTest
+
+And that works. Robots are the best.
+
+NOW WE CAN PROCEED WITH TESTING THE THING IN THE BOOK!
+Just kidding. I'll do the test on the next chapter since I need to do some restructuring.
+I changed my mind. I'll do them here.
+For next project I will adopt
+src\main\java\com\example\...
+for the main java files
+src\test\java\com\example\...
+for the test
+For the classes, I think javac will automate it based on the pre-existing paths.
+
+I changed my mind. I will not do the tests here. I'll do it on the next project.
+
+Sorry. I think I'll do the test since the book says to do it. I'll just put the test under the same directory as the model for now.
+
+From
+https://github.com/junit-team/junit4/wiki
+Looked at
+https://github.com/junit-team/junit4/wiki/Assertions
+Fished out whatever looked relevant.
+
+While writing out the test file, just noticed that the java code is pre-generics. Will probably also update the syntax starting on the next chapter.
+Generics were introduced in JAVA 5, so it should be doable since relevant projects are Java 7~8 anyways.
+But for now, I'll stick to calling them raw.
+Looks like there are issues if you want to call them raw and don't want to use type parameters, specifically with assertThat.
+But I've added an assertThat working implementation in the test and commented it out.
+
+Also I will be using the built-in automatic test functionality in VS Code. I won't be running a command to compile the test and then running another command
+to test them when VS Code does just about the same thing.
+
+AT THIS POINT, SERVLET VERSION TWO IS BEING MADE
+(p. 119/913)
+I've been doing everything in isolation. Now I have to recompile the servlet after making version two change. 
+
+RESET YOUR MIND. EVERYTHING IS A LIE. START AGAIN WITH 0 ASSUMPTIONS. DO NOT GO BY PREVIOUS RESULTS THINKING YOU UNDERSTAND WHAT'S GOING ON.
+
+This is just mostly for me. Might explain some confusion I had earlier between java and javac
+https://stackoverflow.com/questions/55632835/why-does-javac-cp-not-need-while-java-cp-does
+
+I'M USING CMD. THERE MIGHT BE SYNTAX ISSUES IF YOU'RE USING POWERSHELL. I DON'T KNOW. ALL I KNOW IS THIS WORKS IN CMD. OKAY?
+Make sure terminal points @ C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1
+
+WHAT WE HAVE SO FAR:
+    Servlet is in 
+    src\com\example\web\BeerSelect.java
+
+    We've introduced the model to the servlet
+    src\com\example\model\BeerExpert.java
+
+    That means BeerSelect is now dependent on BeerExpert.
+
+SERVLET RECOMPILE
+    javac -cp C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar -d classes src/com/example/model/BeerExpert.java src/com/example/web/BeerSelect.java
+
+TRYING TO MAKE SENSE OF JAVAC
+    If you type javac -help, one thing it prints out is
+    javac <options> <source files>
+
+    I asked chatgpt to explain in the SERVLET RECOMPILE code, which is which
+    
+    The options are:
+    -cp C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar (class path)
+    -d classes (destination directory for compiled class files)
+    
+    The source files are:
+    src/com/example/model/BeerExpert.java
+    src/com/example/web/BeerSelect.java
+    
+    So, the <options> end before the -d option, and the <source files> start after that. 
+    The compiler will interpret everything after the <options> as source files to be compiled.
+
+EXPLICITLY setting -cp in order to point to the correct set of classes that are needed to compile the servlet
+https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html#classpath
+If -cp wasn't set, it would use the CLASSPATH environment variable.
+
+So -sourcepath is for dependencies that don't necessarily have a .class file? Still confused on this.
+If -sourcepath is not specified, the class path is als
+https://stackoverflow.com/questions/16186967/difference-between-sourcepath-and-just-specifying-the-source-file 
+
+If I typed in
+    javac -d classes src/com/example/model/BeerExpert.java src/com/example/web/BeerSelect.java
+    I would get errors related to javax.servlet.http, which I guess is not something offered by the default CLASSPATH environment variable.
+So by using -cp, I tell javac to use the classpath I've set here instead to compile the servlet. Errors related to javax.servlet.http don't pop-up anymore.
+
+-d classes 
+    Tells javac to place the compiled .class files into the classes folder (porting over the package structure as well)
+
+src/com/example/model/BeerExpert.java src/com/example/web/BeerSelect.java
+    Tells javac which source files to convert to classes
+    I have to explicitly state the dependencies if there are any (BeerSelect depends on BeerExpert)
+
+
+I'm still a bit confused. 
+So if I wanted to compile just any java source code file in my web app, servlet-api.jar is fine as the classpath?
+I asked chatgpt. I need to talk to real people. 
+    No, using servlet-api.jar as the classpath for compiling any arbitrary Java source code file in your web app is not recommended. The servlet-api.jar is specifically designed to provide classes and interfaces for developing servlet-based web applications. It should only be included in the classpath when compiling servlet-related code.
+    For compiling general Java source code files that are not related to servlets or web applications, you should use a regular Java classpath that includes the necessary libraries and directories where your Java classes are located.
+    Using servlet-api.jar as the classpath for non-servlet code could lead to unexpected issues, and it's best to use the appropriate classpath for the specific type of code you are compiling.
+
+This helps clarify things a bit. But again, who knows if this robot is telling the truth.
+    The javac command itself can convert a .java source file to a .class file without relying on the classpath, as long as the source code does not have dependencies on external libraries or other classes that are not part of the current directory or the standard Java library.
+    For simple Java code that doesn't rely on external dependencies, you can use javac without specifying the classpath, and it will be able to compile the code successfully. However, as soon as your code starts depending on external libraries or other classes, you will need to specify the appropriate classpath using the -cp option to ensure that the compiler can locate those dependencies during compilation.
+
+Here are my compilation steps. I have sort of been going away from the book now.
+FROM THE DEVELOPMENT ENVIRONMENT
+1) Make sure my CMD is pointing to the BEERV1 project
+    C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\beerV1>
+2) Take care of servlet's dependencies first
+    javac -d classes src/com/example/model/BeerExpert.java
+    (I'm ignoring the "Note:" that gets outputted)
+3) Take care of the servlet
+    javac -cp C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar;./classes -d classes src/com/example/web/BeerSelect.java
+Note: I don't know enough. But I only want to use servlet-api.jar to compile the servlet, but the servlet has a dependency. So I compiled the dependencies separately first.
+And in this part, I added the directly ./classes in the classpath. This allows the compiler to look at the compiled BeerExpert that BeerSelect depends on.
+FROM THE DEPLOYMENT ENVIRONMENT
+1) Copy the newly converted classes under the appropriate directory under WEB-INF > classes.
+
+Shutdown and then Startup tomcat.
+EVERYTHING IS A-OKAY.
+
+Once again I am reminded of 
+% javac -classpath /Users/bert/Applications2/tomcat/common/lib/
+servlet-api.jar:classes:. -d classes src/com/example/web/BeerSelect.java
+from the book which I've ignored all this time. I do not know what :classes:. is or what it does.
+
+I've run into an issue with the JSP. I'm getting the error:
+Aug 11, 2023 4:40:00 PM org.apache.jasper.compiler.JDTCompiler$1 findType
+SEVERE: Compilation error
+org.eclipse.jdt.internal.compiler.classfmt.ClassFormatException
+
+Might be a problem with me running Tomcat 5 with Java 8. It might be just worth downgrading for the sake of being able to follow along.
+The existing code might break. I'm switching to 1.4
+Switching to 1.4 didn't work. I'm switching to jdk1.5.0_22.
+I'll have to recompile stuff since it was compiled with 1.8.
+Had to restart PC.
+
+Command is now modified since it's highlighting weirdly with the semi-colon (;)
+Now added quotes to paths.
+javac -cp "C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar;./classes" -d classes "src/com/example/web/BeerSelect.java"

@@ -1,0 +1,12 @@
+DEPLOYMENT DESCRIPTOR CODE (Correct)
+<web-app ...>
+	<servlet>
+		<servlet-name>C2Dice</servlet-name>
+		<servlet-class>Ch2Dice</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>C2Dice</servlet-name>
+		<url-pattern>/Dice</url-pattern>
+	</servlet-mapping>
+</web-app>
