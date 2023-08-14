@@ -1,0 +1,41 @@
+Regarding ServletConfig:
+(p184)
+Based on the web-app_2_4.xsd file 
+(the thing that contains the rules for the correct structure and syntax of beerV1's web.xml), I got
+      <xsd:element name="init-param"
+		   type="j2ee:param-valueType"
+		   minOccurs="0" maxOccurs="unbounded"/>
+With maxOccurs being set to unbounded, this is probably the tag to use the set as many variables you want for the
+servlet to access later
+
+ServletConfig is not available for the servlet until the container calls its init()
+
+The servlet init parameters are read only once - when the Container initializes the servlet. 
+This is done when the Container makes the servlet, then it reads the DD (deployment descriptor) to create the name/value pairs
+for the ServletConfig. If you want it to regenerate another one, you have to redeploy the servlet again. How? At this point,
+I don't know yet.
+It doesn't look like "re-deploying" the application is a big deal. It's probably just preferred to do that than to touch
+the source code and do whatever that entails.
+
+Flow of ServletConfig as the Servlet is Birthed
+Say the servlet is called MyServlet
+1) Container reads the Deployment Descriptor for this servlet, including the servlet's init parameters
+2) Container creates a new ServletConfig instance for this servlet 
+(it looks like it's empty? or at least it's without the init parameter values)
+3) Container starts making name/value pair for each servlet init parameter. 
+(this one in the book is assuming we only have 1 pair so I don't know about the logistics here.
+does it push every pair one by one into the ServletConfig or does it make a collection of pairs and then pushes it there)
+4) Container gives the ServletConfig references 
+I WILL NOT CONTINUE THIS NUMBERING SEQUENCE BECAUSE I DON'T UNDERSTAND THIS PROCESS YET!!11!!11!1!!!!111!!!!!!
+
+Hit a wall regarding specifics. Want to understand this process better. Looking it up.
+Might be a chance that this just starts making sense as I read along because key information is not being talked about yet.
+https://www.geeksforgeeks.org/servletconfig-in-servlet/
+Shows that they're manually setting stuff within the service
+
+I'll just continue reading for now...
+
+I've continued reading (p188) and it looks like whatever sets the values to the object is an internal thing rather than something
+I need to override. They're just calling getServletConfig's methods to obtain the values. Already assuming that it's there.
+Probably because it already is. Again, set internally. Problem is this doesn't clarify my previous issues. Will have to look further
+or just give up. Probably going to give up.

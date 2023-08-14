@@ -1,0 +1,17 @@
+Will write the notes after I check if this works.
+
+Change log:
+Added TestInitParams.java under src/com/example/web
+Added new <servlet> and <servlet-mapping> entry in web.xml.
+Added init-params to the newly added <servlet> in web.xml.
+
+Changes to BUILD
+[*]Probably safe to just skip
+javac -d classes src/com/example/model/BeerExpert.java
+Because we don't touch BeerExpert
+
+[+]Added the new servlet TestInitParams.java to this one (has no dependencies)
+javac -cp "C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar;./classes" -d classes "src/com/example/web/BeerSelect.java" "src/com/example/web/TestInitParams.java"
+
+Direct access URL:
+http://localhost:8080/Beer-v1/TestParams.do
