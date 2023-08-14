@@ -1,0 +1,11 @@
+Regarding Servlet
+    You should not write a constructor. Just use the compiler-supplied default.
+    Why not? Potential answers. I just did a google search. These are top results. Not sure if there's a point to this.
+    But reading it does help. A little. Maybe.
+    https://stackoverflow.com/questions/2103479/why-there-are-no-constructor-in-servlet
+    https://stackoverflow.com/questions/11601559/servlets-use-constructor-or-not
+    https://javapapers.com/servlet/why-not-declare-a-constructor-in-servlet/
+    But (p133/913) goes through the lifecycle and its methods.
+Initialization
+    The servlet starts life when the Container finds the servlet class file and loads it up right there or just before the first client needs it (just-in-time)
+    ^ This happens when the Container starts up

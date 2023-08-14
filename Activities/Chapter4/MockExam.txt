@@ -1,0 +1,44 @@
+1. How to get "User-Agent" header from the request
+    B. String userAgent = request.getHeader("User-Agent");
+    (/)
+2. What HTTP method is used to show the client what the server is receiving
+    C. TRACE
+    (/)
+3. Which HttpServletResponse is used to redirect an HTTP request to another URL
+    D. sendRedirect()
+    (/)
+4. Not idempotent HTTP methods
+    D. PUT
+    (x)
+    B. POST
+    Might have had a brain fart. I was thinking of POST but entered PUT.
+5. Given req as HttpServletRequest, how to get a binary input stream
+    (not sure about this one)
+    B. ServletInputStream s = req.getInputStream();
+    (/)
+6. How to set header "CONTENT-LENGTH" in HttpServletResponse object
+    B. response.setHeader("CONTENT-LENGTH","1024";)
+    (/)
+    (another one I wrote down)
+    setContentLength("...") <- EXISTS BUT TECHNICALLY IS A ServletResponse method, not HttpServletResponse
+    ^ Also still wrong because it accepts an int, not a String
+7. (this one spoils the answer to no.5 I guess)
+    How to write an image or other binary type to HttpServletResponse
+    B. ServletOutputStream out = response.getOutputStream();
+    (/)
+8. Method used by servlet to handle form data from a client
+    B. HttpServlet.doPost()
+    (/x CORRECT BUT I KEPT ON SECOND GUESSING. THOUGHT IT WAS WRONG, THEN LANDED ON IT BEING CORRECT AFTER CHECKING CODE)
+    (other choices spoil the answer, so I think I'm already wrong here since I chose to write down B)
+    (I tried to make sure by looking at the code and trace which is where. And reading the question again, it does mention form data
+    and it has to be Post only for that. Then there's the obvious that the other class in the choices, ServletRequest, is a request
+    object and not the servlet...)
+9. Methods declared in HttpServletRequest as opposed to ServletRequest
+    A. getMethod()
+    B. getHeader()
+    (/)
+    But missing 
+    C. getCookies()
+10. How should servlet developers handle HttpServlet's service() method when extending HttpServlet
+    D. They should override at least one doXXX() method (such as doPost())
+    (/)

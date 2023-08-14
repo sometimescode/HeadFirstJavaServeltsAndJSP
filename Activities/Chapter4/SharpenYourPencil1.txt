@@ -1,0 +1,14 @@
+My Answers
+1. Web container looks for the servlet class (x)
+2. Web container constructs the servlet object from the found servlet class (/)
+3. Web container creates a thread for the servlet object  (x)
+4. Servlet is initialized (x)
+    4a. I have no idea (x)
+5. Piattos Snack Cheese (x Nova is better?)
+Actual Answers
+1. Web container loads the servlet class.
+2. Web container calls the servlet class' constructor.
+3. Web container calls the servet object's init()
+4. Web container calls the servlet's service() 
+    4a. Servlet is now in initialized state and can handle client requests (each request -- doGet(), doPost(), etc -- runs in a separate thread)
+5. Web container calls the servlet's destroy()
