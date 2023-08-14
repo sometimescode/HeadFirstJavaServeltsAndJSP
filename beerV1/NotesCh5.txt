@@ -15,3 +15,26 @@ javac -cp "C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\l
 
 Direct access URL:
 http://localhost:8080/Beer-v1/TestParams.do
+
+By the way, either directly modifying the web.xml in the deployment environment OR
+replacing the web.xml in the deployment environment with the updated web.xml in the development environment while tomcat was running
+UPDATED the result of the URL above. Did not need to restart the server at all. 
+Maybe it was automatically done by tomcat as it detected the modification in the web.xml?
+
+(p.191)
+Calls for a different implementation since we're using a JSP and not just expecting the servlet itself to output the html.
+I've renamed the additions I made above. I want to keep it as reference for direct html response.
+
+In any case, the book says the best solution for when you need variables to be shared across the entire app (and not just in one servlet) 
+is to put the variables under the context-param and not within the servlet's param-init. Which is what we're doing here now.
+
+Change log:
+A bunch of changes. I don't know why I do this. I don't care. Figure it out. It's not consistent. It won't help. Just use version control.
+Even just the history of this is pointless. I'll need to have Chapter5 also included in NotesRevised because it breaks all of it.
+
+Changes to BUILD
+javac -cp "C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\servlet-api.jar;./classes" -d classes "src/com/example/web/BeerSelect.java" "src/com/example/web/TestInitParamsServletInit.java" "src/com/example/web/TestInitParamsContextParam.java"
+
+Direct access URL:
+http://localhost:8080/Beer-v1/TestParamsServletInit.do
+http://localhost:8080/Beer-v1/TestParamsContextParam.do

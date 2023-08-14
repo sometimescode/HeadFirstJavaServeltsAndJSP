@@ -14,10 +14,10 @@
         <url-pattern>/SelectBeer.do</url-pattern>
     </servlet-mapping>
 
-    <!-- Chapter 5 Servlet  -->
+    <!-- Start: Chapter 5 Servlet (Params in Servlet Init) -->
     <servlet>
-        <servlet-name>Beer Test Params</servlet-name>
-        <servlet-class>com.example.web.TestInitParams</servlet-class>
+        <servlet-name>Beer Test Servlet Params</servlet-name>
+        <servlet-class>com.example.web.TestInitParamsServletInit</servlet-class>
         <init-param>
             <param-name>adminEmail</param-name>
             <param-value>likewecare@wickedlysmart.com</param-value>
@@ -29,8 +29,30 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Beer Test Params</servlet-name>
-        <url-pattern>/TestParams.do</url-pattern>
+        <servlet-name>Beer Test Servlet Params</servlet-name>
+        <url-pattern>/TestParamsServletInit.do</url-pattern>
     </servlet-mapping>
+    <!-- End: Chapter 5 Servlet (Params in Servlet Init) -->
+
+    <!-- Start: Chapter 5 Servlet (Using Context-Params) -->
+    <servlet>
+        <servlet-name>Beer Test Context Params</servlet-name>
+        <servlet-class>com.example.web.TestInitParamsContextParam</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Beer Test Context Params</servlet-name>
+        <url-pattern>/TestParamsContextParam.do</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>adminEmail</param-name>
+        <param-value>context.params.likewecare@wickedlysmart.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>mainEmail</param-name>
+        <param-value>context.params.blooper@wickedlysmart.com</param-value>
+    </context-param>
+    <!-- End: Chapter 5 Servlet (Using Context-Params) -->
  
 </web-app>

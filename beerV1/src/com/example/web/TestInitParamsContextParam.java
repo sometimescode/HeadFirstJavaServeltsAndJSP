@@ -3,23 +3,26 @@ package com.example.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class TestInitParams extends HttpServlet {
+public class TestInitParamsContextParam extends HttpServlet {
     
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("test init parameters<br>");
+        out.println("test init parameters from context<br>");
 
-        java.util.Enumeration e = getServletConfig().getInitParameterNames();
+        ServletContext context = getServletContext();
+        java.util.Enumeration e = context.getInitParameterNames();
         while(e.hasMoreElements()) {
             out.println("<br>param name =" + e.nextElement() + "<br>");
         }
-        out.println("main email is " + getServletConfig().getInitParameter("mainEmail"));
+
+        out.println("main email is " + context.getInitParameter("mainEmail"));
         out.println("<br>");
-        out.println("admin email is " + getServletConfig().getInitParameter("adminEmail"));
+        out.println("admin email is " + context.getInitParameter("adminEmail"));
     }
 }
