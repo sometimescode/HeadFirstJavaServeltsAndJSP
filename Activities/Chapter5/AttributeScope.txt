@@ -1,0 +1,12 @@
+                Accessibility                               Scope                               What it's good for
+                (who can see it)                            (how long does it live)             
+Context
+                everyone                                    while the app is running            global stuff
+
+
+HttpSession
+                same HttpSession                            for a configured amount of time     things you need for a bit but not for too long?
+
+
+Request
+                same Request                                while page is not refreshed         things you need to always keep up to date

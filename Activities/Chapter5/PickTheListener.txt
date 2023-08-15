@@ -1,0 +1,18 @@
+1. Track when an attribute in a web app context has been added, removed, or replaced
+ServletContextAttributeListener
+(/)
+2. Track active sessions
+HttpSessionAttributeListener
+(x) Correct answer is HttpSessionListener
+3. Track requests
+ServletRequestListener
+(/)
+4. Track when a request attribute has been added, removed, or replaced
+ServletRequestAttributeListener
+(/)
+5. Track when an attribute class is bound to or removed from a session
+HttpSessionBindingListener
+(/)
+6. Track when a session attribute has been added, removed, or replaced
+HttpSessionListener
+(x) It's in the name. Correct answer is HttpSessionAttributeListener

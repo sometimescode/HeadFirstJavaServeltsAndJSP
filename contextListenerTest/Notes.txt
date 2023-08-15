@@ -1,0 +1,41 @@
+I'm following the structure in Screenshots folder of parent.
+I will try to implement tests moving forward. In doing so, I will slightly modify the structure.
+
+instead of project -> src -> com
+    will now have   project -> src -> main -> java -> com -> example for the usual stuff
+    and another     project -> src -> test -> java -> com -> example for the test
+made the change following below as guide
+https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html
+
+It's very verbose though, the package name.
+
+I will also now (rather than pointing to my folder that holds external libraries) add those libaries to the libaries to the lib
+folder which was previously unused. I also copied over the servlet-api. Pointing to a unified location rather than making copies
+per project, I'm not sure which is better (if they're all basically using the same thing). Something cool though is that VSCode
+automatically adds the jars under Referenced Libraries. I renamed "lib" to "rarianlib" and refreshed the Referenced Libraries
+and it ended up empty. So the structure that we're using is helping VSCode locate it immediately.
+
+Compile time.
+Leave the servlet-api.jar dependent files for last.
+That leaves us with Dog.java.
+javac -d classes "src/main/java/com/example/model/Dog.java"
+The remaining need servlet-api.jar for compiling and are dependent on the Dog class. 
+We're using the compiled Dog class, so just added it as another path in the classpath.
+javac -cp "lib/servlet-api.jar;classes/main/java/com/example/Dog.class" -d classes "src/main/java/com/example/model/Dog.java" "src/main/java/com/example/web/MyServletContextListener.java" "src/main/java/com/example/web/ListenerTester.java"
+
+Now that classes are compiled, now make the deployment structure for this project under webapps.
+Remember I changed the structure to accomodate test but I never even made a test. I'll have to make one after this.
+Not sure how to do it.
+
+Because servlet-api belongs to Tomcat, I did not include it when porting over the lib folder in this project's TOMCAT's webapps folder.
+Project's URL:
+http://localhost:8080/context-listener-test/ListenTest.do
+
+Will now create test. Don't know how to create tests for the servlet and the listener. I don't want to spend too much time here.
+For now I will just skip. I'll create a notepad on the parent-level to remind me of things that I skipped.
+
+(p.217)
+An HttpSessionBindingListener vs HttpSessionAttributeListener
+Know when the attribute itself is being added or removed to the session (so the attribute can handle logic specific to itself) 
+vs 
+Know when something is added to the session (for more general logic, I guess?)

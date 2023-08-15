@@ -1,0 +1,26 @@
+Remember the listeners (ruined by vscode's auto-suggestion. i'd probably score a 0 otherwise)
+
+Attribute Listeners:
+        HttpSessionAttributeListener
+        ServletContextAttributeListener
+        ServletRequestAttributeListener
+
+Other lifecycle listeners:
+        HttpSessionBindingListener
+        ServletContextListener
+        ServletRequestListener
+
+Methods in all attribute listeners (except binding listener):
+        addX()
+        removeX()
+        updateX()
+Lifecycle events related to sessions (excluding attribute-related events):
+        HttpSessionBindingEvent (for this and the next two, I added the event that owuld be associated with it, but i don't think this is what it means by lifecycle event)
+        create, destroy
+Lifecycle events related to requests (excluding attribute-related events):
+        ServletRequestEvent
+        create, destroy
+Lifecycle events related to servlet context (excluding attribute-related events):
+        ServletContextEvent
+        initialize, destroy
+

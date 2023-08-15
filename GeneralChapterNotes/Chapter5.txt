@@ -39,3 +39,35 @@ I've continued reading (p188) and it looks like whatever sets the values to the 
 I need to override. They're just calling getServletConfig's methods to obtain the values. Already assuming that it's there.
 Probably because it already is. Again, set internally. Problem is this doesn't clarify my previous issues. Will have to look further
 or just give up. Probably going to give up.
+
+(p.196)
+A ServletContext is a JSP or sevlet's connection to both the Container and the other parts of the web app.
+
+(p.200)
+A ServletContextListener can be made to manage events that you want to occur after the context init parameters are set but
+before the servlets you made are loaded up.
+
+Context Listener Test Example
+Rundown
+	com.example package
+	
+	needs
+		<listener>
+			<listener-class>
+			com.example.MyServletContextListener
+			</listener-class>
+		</listener>
+	in DD
+
+	needs MyServletContextListener.java, Dog.java [Dog(String),getBreed()], ListenerTester.java
+
+I'll probably try to do it as if I'd make a test as well.
+
+Note, we're at p.204. Just got some screenshots for reference to development and deployment structure of a new project.
+Will be following that for this new test project. Probably best to set everything up now before proceeding.
+If this book actually has a name for the project, I don't care. I'll be using my own name.
+
+Project has been made named contextListenerTest. Project will house the notes related to it.
+A side note. I don't understand why this listener project just dumps everything under example. 
+Makes no use of web/model.
+

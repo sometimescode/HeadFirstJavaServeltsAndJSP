@@ -1,0 +1,17 @@
+Rearrange the magnets to form a DD that declares a 
+parameter that matches the servlet code:
+getServletContext().getInitParameter(¡Èfoo¡É);
+
+<web-app ...>
+
+    <servlet>
+        <servlet-name>BeerTest</servlet-name>
+        <servlet-class>com.wickedlysmart.BeerTester</servlet-class>
+    </servlet>
+
+    <context-param>
+        <param-name>foo</param-name>
+        <param-value>bar</param-value>
+    </context-param>
+
+</web-app>
