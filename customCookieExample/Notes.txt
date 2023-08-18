@@ -1,0 +1,9 @@
+I read through the project and then made it without referencing back to the contents of the book outside of the
+class names, so this project's code might not match the logic 1 to 1.
+
+Command to Compile:
+Since both the java classes are servlets, it's just one command 
+javac -cp "lib/servlet-api.jar" -d classes "src/com/example/web/CheckCookie.java" "src/com/example/web/CookieTest.java"
+
+URL:
+http://localhost:8080/custom-cookie-example/form.html
