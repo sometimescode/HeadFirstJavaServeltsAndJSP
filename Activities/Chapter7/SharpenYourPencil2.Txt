@@ -1,0 +1,19 @@
+1) How would you retrieve them in your code? (Big, 
+huge, gravel-hauling hint: pretty close to the same 
+way you retrieve them in a ¡Ènormal¡É servlet. From 
+which object do you normally get servlet init parameters? Is that object available to your JSP code?)
+
+Probably using the implicit object that was created. Use the config implicit object.
+
+2) How/where would you configure the servlet init 
+parameters?
+
+Probaby the same deal. Use an implicit object. Unless the Container does some magic,
+I doubt setting stuff in the DD is going to fly.
+You'd probably have to use the config implicit object. And just set it up there.
+
+3) Suppose you do want to override the init() 
+method... how would you do it? Is there something 
+else you can do that¡Çll give you the same result?
+
+Use the jspInit() to do stuff that you want to do. Maybe use the declaration type jsp element to host the method.

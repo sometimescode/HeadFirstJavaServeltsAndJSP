@@ -1,0 +1,24 @@
+1.
+    should be fine. nothing happens though outside of the page displaying
+    "Test scriptlets..."
+    i think even though x is declared after y, it should all still be okay
+    based on what i've read
+2.
+    It should be fine. I'm assuming ArrayList is under the imported java.util.* package
+    "Testing scriptlets...
+    foo"
+3.
+    Should be fine. The order is what's important.
+    "Testing scriptlets...
+    22"
+    Even though the instance variable is set to 42, the local variable with the same name is set to 22
+    And the expression should be housed within the service which uses the local variable, which is 22
+
+
+Answers:
+1.
+    I guess I didn't read so good. It's invalid because it depends on a value that isn't there yet, so it won't compile.
+2.
+    Almost Correct. It doesn't print "foo" on a new line.
+3.
+    Almost Correct. It doesn't print "22" on a new line.

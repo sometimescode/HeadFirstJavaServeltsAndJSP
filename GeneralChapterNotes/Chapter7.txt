@@ -1,0 +1,16 @@
+A JSP is turned into a servlet. It is its destiny.
+
+JSPs can hold java code using a scriptlet. But not just scriptlet.
+There are three JSP element types:
+Scriptlet:  <% %> <- same as usual, if you want an output in your page, using out.print("TEST"), which is 
+                    immediately made available to you
+    Scriptlets are just plain old Java that lands as-is within the generated servlet's service method
+Directive:  <%@ %> <- here you can do imports (among others)
+    Directives are for special instructions to the Container
+Expression: <%= %> <- here the expressions become the argument to an out.print() so no  semicolon is needed
+    Result of an expression always becomes the argument to a print() method
+
+!!!!!!111!!!!!1111!!11!!1 NEW JSP ELEMENT JUST DROPPED
+Declaration: <%! %> <- needs a semicolon since it isn't an expression
+    Declarations are for declaring members of the generated servlet class, so these are added outside the service method. 
+    It's for static and instance variables and methods

@@ -1,0 +1,33 @@
+Are the ff expressions valid?
+? <%= 27 %>
+valid. this is an expression.
+(/) this is read as a primitive literal
+? <%= ((Math.random() + 5)*2); %>
+invalid because of the semicolon. expressions don't end with the semicolon because it's passed as an argument
+to the PrintWriter's out 
+(/)
+? <%= ¡È27¡É %>
+assuming this quotation mark character is valid, then yes, it should be accepted
+(/) this is read as a string literal
+? <%= Math.random() %>
+true assuming Math.random() by itself returns a value 
+(/)
+? <%= String s = ¡Èfoo¡É %>
+false because you're doing an assignment
+(/)
+? <%= new String[3] %>
+should be fine because not a void return
+(/) any object can be sent to a println() statement
+? <%= 42*20 %>
+true
+(*) I copied it and it did appear as "<% =" but I thought it was a mistake so I fixed it.
+In any case, the maths is fine. It's the spacing in "<% =" that's an issue. It has to be "<%="  
+? <%= 5 > 3 %>
+true what will this output? true? or the literal 5 > 3?
+(/) this resolves to a boolean, so it outputs true
+? <%= false %>
+this will just output false
+(/) this resolves as a primitive literal
+? <%= new Counter() %>
+should be fine because not a void return
+(/) fine because it returns the result of the object's toString()
