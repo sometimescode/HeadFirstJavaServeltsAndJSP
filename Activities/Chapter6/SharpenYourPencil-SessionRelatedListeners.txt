@@ -1,0 +1,35 @@
+Scenario -> 
+    Listener interface/methods -> 
+        Even type -> 
+            Usually implemented by
+
+You want to know when a session is created ->
+    HttpSessionListener (/)
+     sessionCreated (/)
+     sessionDestroyed (/) ->
+        HttpSessionEvent (/) ->
+            Some other class (/)
+
+An attribute wants to know when it has been moved into a new VM ->
+    HttpSessionActivationListener (/)
+     sessionActivated (x) sessionDidActivate
+     sessionPassivated (x) sessionWillPassivate ->
+        HttpSessionEvent (/) ->
+            An attribute class & Some other class
+
+An attribute wants to know when it has been replaced in a session ->
+    HttpSessionAttributeListener (/)
+     attributeAdded (/)
+     attributeReplaced (/)
+     attributeRemoved (/) ->
+        HttpSessionBindingEvent (/) ->
+            An attribute class (x) Some other class
+
+You want to be notified whenever anything is bound to a session ->
+    HttpSessionAttributeBindingListener (x) HttpSessionBindingListener
+     valueBounded (x) valueBound
+     valueUnbounded (x) valueUnbound ->
+        HttpSessionBindingEvent ->
+            An attribute class
+
+

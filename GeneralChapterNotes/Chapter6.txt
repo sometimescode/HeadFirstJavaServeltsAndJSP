@@ -1,0 +1,29 @@
+p.279
+- You can set the time-out value for all sessions in the DD. This accepts the value in minutes
+<session-config>
+    <session-timeout>15</session-timeout>
+</session-config>
+- On the flip side, you can set the time out value on a session itself. This accepts the values in seconds.
+session.setMaxInactiveInterval(60*20);
+As to why they passed the arguments like that, maybe it's just to have it be similar with the DD declaration.
+Probably not that costly to just do a bit of Maths.
+
+Cookies were originally designed to help support session state. The server sends the set-cookie information that contains
+the session id. And then the client uses the cookie to send the session id when it sends another request. This is how
+the back-and-forth communication can work.
+
+p.285
+You can use cookies with the servlet-api using the ff:
+HttpServletRequest -> getCookies() 
+to obtain and loop through the name/value string pair and find a matching name to obtain the value you want from the cookie
+
+HttpServletResponse -> addCookie()
+to add a new cookie to be included in set-cookie as a response sent back to the client
+
+javax.servlet.http.Cookie 
+as the object that holds the data model for the Cookie
+    You can use setMaxAge to set how long a cookie can live (so that it can even live past the browser closing)
+    It expects value in seconds, with -1 being the indicator that it disappears when the browser exits 
+
+(p.286)
+Will be setting up new project customCookieExample for this. Will use the original structure. Won't do tests.

@@ -1,0 +1,127 @@
+1.
+    E. Line 13 or 15
+    Don't think getHttpSession is a valid method
+    (/)
+2.
+    E. Cookies and URL rewriting must be used together
+    It will fall back to URL rewriting if it can't
+    recognize the cookies.
+    Why "must"? Not sure.
+    (x) B URL rewriting, but NOT cookies
+3.
+    A. False because -1 means the session 
+    will disappear when the browser exits
+    (x) This is true. Technically it will not expire because it waits for the browser to close before it is removed.
+    But even that bit I need to verify first.
+    B. False because you can set the session to persist
+    based on time and not ob the browser's state
+    (/) But I don't think my explanation here tracks with what's in the book.
+    It just says there is no explicit termination signal in the HTTP protocol.
+    C. True
+    (/)
+    D. True
+    (x) Wrong method name. It should be invalidate() and not invalidateSession()
+4.  
+    B. ServletRequestEvent
+    (x) This is an actual event.
+    D. HttpSessionAttributeEvent is the correct answer.
+    This doesn't exist because it uses HttpSessionBindingEvent as well for HttpSessionAttributeListener
+5.
+    A. True
+    (/)
+    B. ? Don't know.
+    (/) But they don't elaborate why.
+    C. False. I think it has to be JSESSIONID
+    (/) This is set in the specification that the session tracking cookie but be JSESSIONID
+    D. True
+    (/)
+    E. ? Don't know.
+    (-) Class doesn't exist
+6.
+    A. Needs HttpSessionEvent parameter
+    (/)
+    B. Needs HttpSessionEvent parameter
+    (/)
+    C. This is false. It should be covered in javax.servlet.http.*
+    (/)
+    D. This is false. They are the only two methods
+    (/)
+7.
+    A. True
+    (/)
+    B. False. I think it's the Cookie that returns a String
+    (/) Yes. This is expected to return an object.
+    C. True
+    (/)
+    D. False. It will just replace the attribute.
+    (/)
+    E. True.
+    (/)
+8.
+    C. HttpServletRequest
+    (/)
+9.
+    F. HttpSessionBindingListener 
+        and HttpSessionAttributeListener
+    HttpSessionBindingListener because it will tell us that the attribute has been bounded (valueBound)
+    HttpSessionAttributeListener because it will tell us that the attribute has been added (attributeAdded)
+    (/)
+10.
+    A. req.getSession()
+    Getting and creating a session is the same
+    (/)
+    B. req.getSession(true)
+    is equivalent to just calling req.getSession()
+    (/)
+
+    getSession(false) returns a null if the session doesn't exist
+11.
+    B. is the only one I know, I think 
+    so I can't really choose the rest cause I don't know them
+    (/) It is the only way to remove an attribute - removeAttribute("attributeName"). You must do it one by one.
+12.
+    A. False. Should retain everything
+    (if everything is serialized). Session is actually moved.
+    (/) Serialized attributes will be transferred
+    B. Possibly. I know HttpSessionActivationListener will trigger.
+    Since it's being moved, then the session could potentially
+    count as being unbound from source and bound in destination.
+    (-) This is incorrect. An attribute will still be BOUND to the session even if it's moved,
+    so HttpSessionBindingListener objects won't be notified
+    C. True
+    (/)
+    D. True
+    (/)
+13.
+    A. False. It does it in minutes.
+    (/)
+    B. True.
+    (/)
+    C. True.
+    (/)    
+    D. False. It does it in seconds.
+    (/)    
+    E. False. Only in seconds.
+    (/)
+14. 
+    C. You have to the cookies in its entirety then loop
+    through them till you find a name that matches what
+    you're looking for
+    (/)
+15. 
+    A. Because it triggers before any destruction actually happens.
+    Regarding C, does unbinding also follow a destruction?
+    (/)
+    - C is also correct. This is for an attribute class.
+    I needed a refresher. A class is considered an attribute class
+    if you plan on using setAttribute, getAttribute on it, by the looks of it.
+16. 
+    C. Create a new cookie object. Then call the HttpServletResponse's 
+    addCookie() passing that new cookie object.
+    (/)
+17. F. IllegalStateException because invalidating a session 
+    so far has shown that calling any methods for it will 
+    throw error above
+    (x) There is an error even earlier. It's line 16 where it says
+    HttpSession sess = new HttpSession(req);
+    req.getSession() is how you're supposed to get the session object

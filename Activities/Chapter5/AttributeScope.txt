@@ -2,11 +2,22 @@
                 (who can see it)                            (how long does it live)             
 Context
                 everyone                                    while the app is running            global stuff
-
+                (/) Any part of the web app                 (/) if server or app goes down      (/) 
+                                                            the context is destroyed
 
 HttpSession
                 same HttpSession                            for a configured amount of time     things you need for a bit but not for too long?
-
+                (?) any servlet or JSP with access          (/*) life of the session, which     (?) too vague. you just want data and resources
+                to the particular session                   can be destroyed programatically    related to the client's session and not a single request, 
+                                                            or time-out                         for ongoing conversation with client
 
 Request
                 same Request                                while page is not refreshed         things you need to always keep up to date
+                (?) any part of the application with        (x) the life of the Request,        (x) passing model info from controller to view
+                access to the Request object,               which means until the service       or any other data specific to a single client
+                usually means the Servlets and JSPs         method completes,                   request
+                to which the request is forwarded           for the life of the thread (stack)
+                using a RequestDispatcher.                  handling the request
+                ALlso Request-related listeners (?)
+
+The answer sheet in the book made a point to mark Context and HttpSession as "NOT thread-safe!" while Request is marked as "Thread-safe"

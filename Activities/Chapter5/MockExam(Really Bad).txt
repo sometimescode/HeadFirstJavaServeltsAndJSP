@@ -1,0 +1,102 @@
+1. When using RequestDispatcher, which method often leads to IllegalStateException
+    B. flush
+    - C. write as well, both methods of OutputStream
+2. Which is true about ServletContext initialization parameters
+    A. They should be used for data that changes rarely
+    (/)
+    C. They can be accessed using ServletContext.getParameter(String)
+    (x) Incorrect method name, it's getInitParameter, not getParameter
+    F. They should be used for data that is applicable to an entire web application
+    (/)
+    - D. ServletContext.getInitParameter(String) as means to access the parameters
+3. Which types define the methods getAttribute() and setAttribute()
+    B. ServletRequest
+    (/)
+    C. ServletResponse
+    (x)
+    - A. HttpSession, and D. ServletContext
+4. After calling RequestDispatcher's forward or include, what method of the invoked 
+servlet's request object can access the request attributes set by the container
+    F. getRequestDispatcher()
+    (x)
+    B. getAttribute
+5. Provides information about initialization parameters applicable to web app 
+    F. ServletContext.getInitParameter(String)
+    - D. ServletContext.getInitParameterNames() is applicable as well
+6. True statement about listener
+    A. I'm not sure if this is actually a listener that exists. But it sounds right.
+    (x) Doesn't exist
+    B. I'm assuming that when a session times out, it triggers its own destruction.
+    (/)
+    NOT C. I don't think it can detect when the servlet context is about to be shut down, just when it has shut down. Prescience non-existent
+    (x) It IS C!!!!!
+    D. I think this is correct.
+    (/)
+    NOT E. Not sure if this is a thing. But if it is, but anything with Attribute should be more specific than this
+    (/) It is a thing, but a different listener is used for this purpose
+7. Stored as an attribute in session scope
+    D. An object representing a user who has just logged into the system.
+    (/)
+8. Guess the logging output based on given code.
+    This one I don't get. setAttribute is called twice. 
+    The first call is like an assumed creation. The second is a modification. The third is a deletion.
+    But none of the options reflect what I expect.
+    So this will be interesting. The answer will teach me something new.
+    - C. The name and value being returned on added is as expected, 
+    on replaced it returns the attributes that were replaced (value before update),
+    on removed it functions same as replace (so it won't be returning nulls)  
+9. Which sub-element of <listener> is required in DD declaration
+    B. <listener-name>
+    C. <listener-type> 
+    It's a toss-up between type or class. But type is calling out to me.
+    (x) Both are wrong. The correct answer is D. <listener-class>, which is the only thing it requires
+10. What objects can store attributes
+    B. ServletResponse
+    (X)
+    - D. HttpServletRequest
+11. Which are true 
+    NOT A. Only because I have no clue.
+    (/) determined in DD
+    B. Only because you can't guarantee which batch of code is being invoked
+    (x) determined in DD
+    C. REAL and TRUE and REAL and TRUE
+    (/) TRUE AND REAL
+    NOT D. Unless invalidating is different from clearing/removing. Even if it was, I also have no clue.
+    (/) A servlet can invalidate a session
+12. Which RequestDispatcher statements are true
+    A. True.
+    (/) 
+    B. False. include() is also a valid method
+    (/) 
+    C. ? Not sure. But that hasn't been demonstrated so far. But then that would mean it's incredibly limiting.
+    (FALSE)  Parameters specified in query string are forwarded
+    D. ? I have no idea.
+    (FALSE) RequestDispatcher can access the URL pattern 
+    E. ? No clue
+    (TRUE) Book has not touched this, but has said this is true.
+13. Recommended way to deal with servlets and thread safety
+    D. 
+14. Match ff methods to class or interface:
+    getCookies, getContextPath, getAttribute
+
+    HttpSession             getCookies, getAttribute
+    ServletContext          getContextPath
+    HttpServletRequest      getContextPath
+
+    Correct:
+    HttpSession             getAttribute
+    ServletContext          getAttribute, getContextPath
+    HttpServletRequest      getCookies, getAttribute, getContextPath
+
+15. What's true about RequestDispatcher interface
+    A. True
+    (/)
+    B. True. I guess it does use all three, maybe not all at once. But it does.
+    (x) Resource is specified at object runtime
+    C. True. The pathing is relative? You can set it up so that it will never change though.
+    (/)
+    D. False. Not necessarily.
+    (/)
+    E. False. I don't think this is possible. Is it?
+    (/) Correct. If servlet uses a RequestDispatcher, it hands off the responsibility of sending the response to the place it redirects to
+Probably need to reread this chapter.

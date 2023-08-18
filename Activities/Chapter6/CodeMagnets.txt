@@ -1,0 +1,15 @@
+Specify both in DD and programatically if a session does not receive any requests for 20 minutes, it should be destroyed
+
+DD 
+<web-app ...>
+    <session-config>
+        <session-timeout>20</session-timeout>
+    </session-config>
+</web-app>
+It's not giving me relevant magnets for setting up the servlet end. So I'm just assuming that it wants the session-config only.
+
+SERVLET
+public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    HttpSession session = request.getSession();
+    session.setMaxInactiveInterval(1200);
+}

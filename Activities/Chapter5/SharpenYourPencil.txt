@@ -1,0 +1,7 @@
+Place a checkmark to the things that are NOT thread-safe
+[/] Context-scoped attributes
+[/] Session-scoped attributes
+[] Request-scoped attributes
+[/] Instance variables in the servlet
+[] Local variables in the service methods
+[] Static variables in the servlet

@@ -15,3 +15,5 @@ getServletContext().getInitParameter(¡Èfoo¡É);
     </context-param>
 
 </web-app>
+
+^ (/) All correct

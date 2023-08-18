@@ -1,0 +1,30 @@
+all answers are made under the assumption that a session object is bound to its unique session id
+
+What it does:
+getCreationTime -> when the session was made
+getLastAccessedTime -> last time getSession() was called? or maybe last time any sort of operation was executed on the session object
+setMaxInactiveInterval -> sets the time limit a session can idle before it is destroyed and sent to the GY
+getMaxInactiveInterval -> just a getter for the max inactive interval
+invalidate -> does what it says on the tin. invalidates the session, discarding it, sending it to the banished zone face down
+
+
+What you'd use it for:
+getCreationTime -> logging purposes?
+getLastAccessedTime -> tracing purposes?
+setMaxInactiveInterval -> some sort of "policy?" set in place to discard sessions that idle for too long
+getMaxInactiveInterval -> just to know
+invalidate -> when a session is no longer necessary (maybe when the user logs out) or if there's any other action that sort of
+calls for a fresh session (Don't know what that could be)
+
+
+Answers:
+getCreationTime -> tell you when the session was made
+                -> you can use it to set a hard limit on how long the session can last after creation
+getLastAccessedTime -> tells you the last time the Container received a request to access the session
+                    -> you can use this to calculate if the client has been inactive and send a follow-up or a warning
+setMaxInactiveInterval  -> sets how long (in seconds) the client can go before sending a request for the session
+                        -> use this to reduce the amount of stale sessions in your server
+getMaxInactiveInterval  -> get the set max inactive interval
+                        -> use the value to judge the amount of idle time when compared with when it was last accessed 
+invalidate  -> ends the session. the session id no longer exists and the attributes are removed from the session object
+            -> for when the session is no longer needed like when the user logs out or if they've maybe done their shopping

@@ -1,0 +1,32 @@
+Determine what will happen the first and second time the same client accesses the server based on the given (1) and (2) doGets
+
+First doGet gets the session from the request and stores it in the session variable.
+It then sets session attributes before invalidating the session. Then it gets an attribute from the same session variable.
+What does invalidating entail? Does it nullify the session? How does a map behave when you pull something that's not there?
+Well it's still a map so it's not null.
+
+Final answer first pass:
+"Foo: "
+
+Second doGet 
+It gets the session and stores it in the session variable. Bear in mind that we're doing this in sequence so the previous time
+we visited some servlet's doGet, it invalidated the session. Now it set an attribute. But then it sets the max inactive interval to 0.
+That means that it's instantly invalidated. Have to verify if that's actually what happens once the set limit is reached.
+Then it gets an attribute but the session was just invalidated. So I'm guessing it gets nothing.
+
+Conditional runs to check if session is new. It was invalidated, so I assume that it will make a new one?
+What happens when a session is invalidated and then you call getAttribute?
+
+Final answer second pass:
+"This is a new session."
+"Foo: "
+
+
+
+Actual Answer:
+
+First pass -> runtime exception (IllegalStateException)
+You can't get an attribute after a session becomes invalid.
+Second pass -> timeout after 0 seconds of inactivity (a timed out session is an invalidated session)
+it's a runtime exception still (IllegalStateException)
+Same reason as above. After invalidating the session, can't call isNew()
