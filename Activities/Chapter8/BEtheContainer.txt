@@ -1,0 +1,27 @@
+I'm assuming this actually runs.
+=================================
+<jsp:useBean id=¡Éperson¡É type=¡Éfoo.Employee¡É scope=¡Érequest¡É >
+ <jsp:setProperty name=¡Éperson¡É property=¡Éname¡É value=¡ÉFred¡É />
+</jsp:useBean >
+Name is: <jsp:getProperty name=¡Éperson¡É property=¡Éname¡É />
+=================================
+type is used without class. It's stated that the bean should already exist within the scope when doing this
+And then it has a body. I don't know if having a body will save it if it doesn't exist yet.
+I'll assume it already exists then. Otherwise the answer to all of the questions is you'll get some sort of
+error thrown.
+
+1) Given the ff servlet code, what would the standard actions above output:
+    foo.Person p = new foo.Employee();
+    p.setName(¡ÈEvan¡É);
+    request.setAttribute(¡Èperson¡É, p);
+
+I think this will fail. Just because it looks for Employee type. This is Person. Surely a Person can't be assigned
+to an Employee. This could pass with casting p to Employee.
+
+2) 
+    foo.Person p = new foo.Person();
+    p.setName(¡ÈEvan¡É);
+    request.setAttribute(¡Èperson¡É, p);
+
+I think this will fail. Just because it looks for Employee type. This is Person. Surely a Person can't be assigned
+to an Employee.

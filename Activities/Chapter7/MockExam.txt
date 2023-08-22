@@ -1,0 +1,127 @@
+1. 
+    A. not true
+    B. note true, actually the opposite
+    C. true
+    D. false, this tag is understood by the container
+    E. false, el is evaluated by default
+    (/)
+2.
+    B. mimeType might be for response <- this will be my answer
+    (/) this isn't a valid page directive attribute. doesn't exist at all.
+    D. contentType probably for request
+    (/) this is the correct answer, there is no mimeType page directive attribute
+3. 
+    B. directive
+    (/)
+    C. expression
+    (/)
+    E. scriptlet
+    (/)
+    - D. template text is also an answer. 
+4.
+    A. true (already available at this point)
+    (/)
+    B. true (already available at this point)
+    (/)
+    C. true (since its called when the servlet is made, which also only happens once) 
+    (/)
+    D. true (if you want to do any set-up)
+    (/)
+5.
+    A. yes
+    (/)
+    B. yes
+    (/)
+    C. not sure, so no
+    (/)
+    D. not sure, so no
+    (/)
+    E. I know that the jsp's service gets passed these. And this also having access to that makes sense.
+    (x) too early in the lifecycle to be talking about requests and responses
+    F. I know that the jsp's service gets passed these. And this also having access to that makes sense.
+    (x) too early in the lifecycle to be talking about requests and responses
+6.
+    A. false. this is defined
+    (/)
+    B. false. since this is a page directive, it will only affect the current page, not all the jsps
+    (/)
+    C. false. i don't understand what this means.
+    (/)
+    D. true
+    (/)
+    E. false. The page directive will overrule the DD in case of conflicts (at least that's the case for this)
+    (/)
+7.
+    A. true
+    (x) this says "Only"
+    B. true
+    (x) this says "Only"
+    C. false, _jspService cannot be overriden
+    (/)
+    D. true
+    (/)
+    E. false, _jspService cannot be overriden
+    (/)
+8.
+If the question is about order, I'll just try to reorder them here and see what stays
+Original order->
+    A. Translate the JSP into a servlet
+    B. Compile servlet source code
+    C. Call _jspService()
+    D. Instantiate the servlet class
+    E. Call jspInit()
+    F. Call jspDestroy()
+Reordered->
+    A. Translate the JSP into a servlet
+    B. Compile servlet source code
+    D. Instantiate the servlet class
+    C. Call _jspService()
+    E. Call jspInit()
+    F. Call jspDestroy()
+What's out of order?
+    C and D
+    (x) only C.
+    The _jspService method can never be called before jspInit.
+    Makes sense. jspInit() has to exist before _jspService() can be called.
+    And _jspService() is the one that passes the request and response parameters.
+9.
+    E. application
+    (/)
+    - C. exception is also an implicit variable
+10.
+    A. Because that's how we've always done it
+    (/) yes, out is an implicit object that's needed
+11.
+    A. true
+    (/)
+    B. true
+    (/)
+    C. true? i don't know what template text is, but the book would have told me by now
+    (x) Now that I know what template text is, I know why this is wrong. Every line has template text.
+    D. false. i think 12 is non-standard and 13 is standard
+    (/)
+    E. false
+    (/)
+    F. yes? i have no idea about the ones I don't know. i'll assume it's true
+    (/)
+12.
+    B. This is the one that makes the most sense brcause application is an implicit object from the context
+    (/)
+13.
+    A. false
+    (/)    
+    B. false, this is only doable on the DD level
+    (/)    
+    C. false, this was removed from the final spec
+    (/)    
+    D. true
+    (/)
+14.
+    C. Cause this fits them the most.
+    (/)
+15.
+    C. <%@ page import="java.util.Date" %>
+    (/)
+16.
+    A. ${awesomeBand} as a literal.
+    (/)

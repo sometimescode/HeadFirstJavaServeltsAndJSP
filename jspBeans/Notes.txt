@@ -1,0 +1,39 @@
+javac -d classes "./src/com/example/model/Person.java" "./src/com/example/model/Employee.java"
+
+URL:
+http://localhost:8080/jsp-beans/formA.html
+
+This project is starting on p.393
+with the classes based on the diagram in p.395 (look at p.388 for the code to base off of).
+I'm guessing the reason Person is abstract is just because they don't want you to instantiate it.
+Outside of that reason, Person's content doesn't actually look abstract at all. Everything is defined.
+
+I ditched foo to go with the usual com.example package just for consistency with my own stuff.
+
+IMPORTANT THINGS:
+You will get an error when being redirected to your JSP from the form 
+when the relevant getters and setters being used in the JSP are not PUBLIC. They have to explicitly have
+the public access modifier on them.
+
+I added an index.html page just because I wanted to have a centralized area to access the different examples in the book.
+Without index.html, visiting http://localhost:8080/jsp-beans results in a 404, and I'd have to manually type in
+the page that I want which was formA.html. 
+Now it just redirects to index.html automatically. Didn't have to set anything.
+
+For index.html
+Remember that the structure that's being followed by the running web app is the structure in tomcat (deployment environment)
+and not the development environment. So make sure the paths are adjusted properly.
+
+<a href="./web/formA.html">Form from p.393</a> ->
+http://localhost:8080/jsp-beans/web/formA.html
+wouldn't work because that's not where formA.html is in the deployment folder structure (ran by tomcat), but it is
+where it's found in the development folder structure (where this Notes.txt is found)
+
+If I want to redirect to formA.html from index.html, I need to use "./formA.html" ->
+http://localhost:8080/jsp-beans/formA.html
+
+because "/formA.html" will lead me to ->
+http://localhost:8080/formA.html
+
+Look at this project's web.xml. It's empty outside of the <web-app> tag. It works fine. Thought I HAD to make a servlet
+even if everything redirects to a JSP, but it turns out it's all good!

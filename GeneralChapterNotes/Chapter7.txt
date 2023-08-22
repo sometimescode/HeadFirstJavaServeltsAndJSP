@@ -14,3 +14,63 @@ Expression: <%= %> <- here the expressions become the argument to an out.print()
 Declaration: <%! %> <- needs a semicolon since it isn't an expression
     Declarations are for declaring members of the generated servlet class, so these are added outside the service method. 
     It's for static and instance variables and methods
+
+EL is seen as different from scriptlets, declarations, and expressions in JSP. It's preferred over those.
+It can get confusing just seem them as wrods. Here's how they look like in the JSP.
+EL = ${}
+Scriptlet = <% %>
+Declaration = <%! %>
+Expression = <%= %>
+
+EL is preferred because it's easier for the page designers. And the code that houses whatever is being called from the EL is 
+found in a separate JAVA file, which is more ideal in case updates need to be constantly done on it.
+
+To disable scripting elements (scriptlets, Java expressions, or declarations), you can put a scripting-invalid tag in the DD.
+<web-app ...>
+ ...
+ <jsp-config>
+    <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
+        <scripting-invalid>
+            true
+        </scripting-invalid> 
+    </jsp-property-group>
+ </jsp-config>
+ ...
+</web-app>
+
+The above snippet says that for all files that end with a .jsp (asterisk is a wildcard), scripting is invalid
+Note that this doesn't invalidate EL, which is ON by default.
+
+You can disable EL in one of two ways:
+    from the DD -> 
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <el-ignored>
+                true
+            </el-ignored>
+        </jsp-property-group>
+    </jsp-config>
+
+    from the page (as a page directive attribute) ->
+    <%@ page isELIgnored="true" %>
+
+In the case where the DD setting and the page directive will clash on whether or not EL is ignored, the page directive will win.
+
+As a recap, we have 5 different types of jsp element so far:
+Scriptlet, Directive, Expression, Declaration, EL
+But there's another one called actions which can come in two flavors ->
+    standard action
+    <jsp:include page="wickedFooter.jsp"/>
+    other action
+    <c:set var="rate" value="32"/>
+But these are for later.
+
+The word "expression" by itself means "Scripting expression" not "EL expression".
+
+Regarding template text, this is taken from another book (Java Server Pages, 3rd), it says:
+Everything that¡Çs not a JSP element (i.e., not a directive, action or scripting element) is template text. 
+Template text is sent to the browser as is. 
+This means you can use JSP to generate any type of text-based output, such as XML, WML, or even plain text. 
+The JSP container doesn¡Çt care what the template text represents.

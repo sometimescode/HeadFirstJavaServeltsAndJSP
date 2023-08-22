@@ -1,0 +1,9 @@
+Look at the syntax for an action, and compare it to the syntax for the other 
+kinds of JSP elements. Then answer this:
+
+1) What are the differences between an action element and a scriptlet?
+An action element looks like it's already defined and set up to do something, and you're just feeding it parameters.
+A scriptlet is just like a blank slate where you can enter any java code you want.
+
+2) How will you recognize an action when you see it?
+Probably by some sort of custom symbol? Like how scriptlets have %. It also doesn't seem to take in java code.

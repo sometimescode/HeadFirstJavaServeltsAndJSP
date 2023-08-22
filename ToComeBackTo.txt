@@ -2,3 +2,21 @@ Chapter 5
 [] Tests for Servlet and the Context Listener.
     I will not do tests for servlet/servlet-adjacent stuff.
     I might actually just skip tests altogether. Making some things pointless.
+Chapter 7
+[] try if even page declarations won't run when scripting-invalid is true
+[] test to see if 
+<% out.println(request.getParameter(¡Èfirst¡É));
+ out.println(request.getParameter(¡Èlast¡É)); %>
+which is valid, can have its values accessed by below
+<% out.println(application.getInitParameter(¡Èfirst¡É));
+ out.println(application.getInitParameter(¡Èlast¡É)); %>
+ (q 10 of mock exam made me wonder, probably won't run)
+Chapter 8
+[] check to see if you can access the request parameters from the jsp
+(from p.379, normally you would request.setAttribute and get that attribute you just set from the jsp using getAttribute,
+but I want to know if you can just do request.getParameter immediately. if the request is even the same by then is what
+i want to know)
+more recent eyes: i think this would work because a form on submit passes its request to the servlet, which then calls
+the jsp. this is 1 step removed. the request would have only worked from from to the servlet. if the form went straight
+to the jsp, then this could work.
+[] when using just type without class, test it out

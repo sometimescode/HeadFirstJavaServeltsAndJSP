@@ -1,0 +1,32 @@
+1) EL Evaluation
+Think about what happens when each of 
+these settings (or combination of settings) 
+occurs. You¡Çll see the answers when you 
+turn the page, so do this one NOW.
+
+DD configuration        page directive      evaluated       ignored
+<el-ignored>            isELIgnored
+
+unspecified             unspecified         /        
+false                   unspecified         /
+true                    unspecified                         /
+false                   false               /
+false                   true                                /
+true                    false               /
+
+- ALL CORRECT!
+
+2) Scripting validity
+Place a checkmark in the evaluated column if the settings 
+would cause the scripting expressions to be evaluated, 
+OR place a checkmark in the error column if scripting will 
+cause a translation error.
+
+DD configuration        evaluated       ignored
+<scripting-invalid>     
+
+unspecified             /
+true                                    /
+false                   /
+
+- ALL CORRECT!

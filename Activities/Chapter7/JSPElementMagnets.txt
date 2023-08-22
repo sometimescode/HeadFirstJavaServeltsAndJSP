@@ -1,0 +1,18 @@
+Match the JSP element with its label by placing the JSP snippet in 
+the box with the label representing that element type. Remember, 
+you¡Çll have Drag and Drop questions on the real exam similar to 
+this exercise, so don¡Çt skip it!
+
+JSP element type -> JSP snippet
+directive       -> <%@ page import="java.util.*" %>
+/
+declaration     -> <%! int y = 3; %>
+/
+EL expression   -> email: ${applicationScope.mail}
+/
+scriptlet       -> <% Float one = new Float(42.5); %> 
+/
+expression      -> <%= pageContext.getAttribute("foo") %>
+/
+action          -> <jsp:include page="foo.html">
+/

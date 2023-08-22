@@ -1,0 +1,15 @@
+Standard Actions:
+
+    Bean
+    <jsp:useBean ... />
+    <jsp:getProperty ... />
+    <jsp:setProperty ... />
+
+    On useBean
+    if you declare a bean with useBean and the identifier (set by id) is not found within the set
+    scope, the bean will be created and hold default values (if any are set)
+
+    If in case you want to set a value if no value is found, then your useBean can have a body containing
+    the setProperty. And that will only run if it has to make a new bean.
+
+    

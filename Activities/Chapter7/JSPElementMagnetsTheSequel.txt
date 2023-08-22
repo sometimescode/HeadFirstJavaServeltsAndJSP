@@ -1,0 +1,31 @@
+You know what they¡Çre called, but do you remember where they go in the 
+generated servlet? Of course you do. But this is just a little reinforcement/practice 
+before we move on to a different chapter and topic.
+(Put the element in the box corresponding to where that element¡Çs generated code 
+will go in the servlet class fi le. Note that the magnet itself does not represent the 
+ACTUAL code that will be generated.
+
+{ <%@ page import="java.util.*" %> }
+/
+
+public final class BasicCounter_jsp extends org.apache.jasper.runtime.HttpJspBase
+ implements org.apache.jasper.runtime.JspSourceDependent {
+ 
+ { <%! int y = 3; %> }
+ /
+
+ public void _jspService(HttpServletRequest request, HttpServletResponse response)
+ throws java.io.IOException, ServletException {
+
+    ...
+
+    { <%= request.getAttribute("foo") %> }
+    /
+    { email: ${applicationScope.mail} }
+    /
+    { <% Float one = new Float(42.5); %> }
+    /
+
+    ...
+ }
+}
