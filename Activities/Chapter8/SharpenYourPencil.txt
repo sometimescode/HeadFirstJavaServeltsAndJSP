@@ -1,0 +1,21 @@
+What prints given:
+    java.util.ArrayList nums = new java.util.ArrayList();
+    nums.add(¡È1¡É);
+    nums.add(¡È2¡É);
+    nums.add(¡È3¡É);
+    request.setAttribute(¡Ènumbers¡É, nums);
+    String[] favoriteMusic = {¡ÈZero 7¡É, ¡ÈTahiti 80¡É, ¡ÈBT¡É, ¡ÈFrou Frou¡É};
+    request.setAttribute(¡ÈmusicList¡É, favoriteMusic);
+
+1) ${musicList[numbers[0]]} 
+musicList["1"] = Tahiti 80
+(/)
+2) ${musicList[numbers[0]+1]}
+musicList["1"+1] -> musicList["11"] = probably some sort of out of bounds error 
+(x) It's BT. 2 instead of 11. Looks like it doesn't work like regular java with String and Int being added.
+3) ${musicList[numbers[¡È2¡É]]} 
+musicList["3"] = Frou Frou
+(/)
+4) ${musicList[numbers[numbers[1]]]}
+musicList[numbers["2"]] -> musicList["3"] = Frou Frou
+(/)

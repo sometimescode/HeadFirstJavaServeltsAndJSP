@@ -37,3 +37,54 @@ http://localhost:8080/formA.html
 
 Look at this project's web.xml. It's empty outside of the <web-app> tag. It works fine. Thought I HAD to make a servlet
 even if everything redirects to a JSP, but it turns out it's all good!
+
+Updated javac:
+1) Compile the non-servlets. Make sure dependents come in after their dependency.
+javac -d classes "./src/com/example/model/Person.java" "./src/com/example/model/Employee.java" "./src/com/example/model/Dog.java" "./src/com/example/model/ConcretePerson.java"
+2) Compile the servlet. Be lazy and just point to the "./classes" path and let java look for Tester's (compiled) dependencies from there.
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/Tester.java"
+
+I just noticed that on the deployment environment, I didn't copy the web.xml at all. So far it hasn't been used since it's empty.
+I guess that just shows that an empty web.xml (only containing web-app) isn't necessary.
+Now that we have a servlet, I'm going to need to add web.xml there now.
+
+Updated javac:
+1) Remains the same
+javac -d classes "./src/com/example/model/Person.java" "./src/com/example/model/Employee.java" "./src/com/example/model/Dog.java" "./src/com/example/model/ConcretePerson.java"
+2) Additional servlet
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/Tester.java" "./src/com/example/web/BracketsNStuff.java"
+
+Something interesting to note:
+In bracketsTestZone.jsp, the following compiles
+    <jsp:useBean id="musicList" type="java.lang.String[]" scope="request"/>
+I initially thought to use class instead of type. After all, according to the specs, type will use class anyway.
+Also the specs says that if you don't specify class or beanName, the object should already exist.
+Naturally I thought I could just leave it blank like:
+    <jsp:useBean id="musicList" scope="request"/>
+    But this doesn't work. It looks for type.
+So I tried adding class.
+    <jsp:useBean id="musicList" class="java.lang.String[]" scope="request"/>
+    But this won't work either. This bit confused me. After having a bit of a chat with the bot and I'm sure I saw
+    this from the book earlier (but I could just be hallucinating) that whatever you pass to class should be a valid
+    javabean class. Which means it has a no-arg constructor and accompanying getters and setters.
+    
+    An array doesn't work like usual objects. You don't just go "new Object();"
+    You can't go "new Array[]();" or "new Array[];". If you want to use that way of initializing the array, you need
+    to provide the length (eg "new Array[5];"). That's not a no-arg constructor.
+
+    From my understanding, type and class is like left side and right side of the equals sign.
+    Type    bean = new Class' no-arg constructor
+    Array[] bean = new (no-arg constructor of class)
+    Because the container complains, and I can't provide a class, I should just give a type.
+    It asks for a type in the first place...
+
+I THINK I JUST REALIZED THAT I'M MISUNDERSTANDING THE BEAN.
+You don't use the standard action beans if you want to make a simple thing like a string. In fact, the book has 
+demonstrated simple primitives using scriptlets and the like. Standard action has been for actual java beans, which are
+POJO objects. I'll try and move forward with this in mind.
+
+Updated javac:
+1) Remains the same
+javac -d classes "./src/com/example/model/Person.java" "./src/com/example/model/Employee.java" "./src/com/example/model/Dog.java" "./src/com/example/model/ConcretePerson.java"
+2) Additional servlet
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/Tester.java" "./src/com/example/web/BracketsNStuff.java"

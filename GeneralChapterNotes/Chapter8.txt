@@ -12,4 +12,63 @@ Standard Actions:
     If in case you want to set a value if no value is found, then your useBean can have a body containing
     the setProperty. And that will only run if it has to make a new bean.
 
+    On setProperty and getProperty
+    If you arrived to the JSP straight from the form, you can use
+    <jsp:setProperty name="..." property="*" />
+    to map requests with the same name as your bean's fields. Said bean is assumed to be declared earlier on using useBean
+    getProperty does not have an equivalent to this. I thought maybe I could use the wildcard to print out the values of 
+    a bean using getProperty, but you'll just get an error:
+    org.apache.jasper.JasperException: Cannot find any information on property '*' in a bean of type ...
+
+
+Here's something from chatGPT. This is related to having a Parent class (Person) and a Child (Employee) where Person
+has the name field and Employee has the empID field. Both classes have the getters and setters.
+
+    In JavaServer Pages (JSP), the <jsp:getProperty> action behaves differently depending on the type of the object 
+    it's working with. Here's why you're observing different behavior:
+
+    JSP Action and Java Casting:
+    When you use <jsp:getProperty> with name="personB" and property="name", it's effectively calling the getName() method 
+    of the personB object, which is of type Person.
+    In this case, JSP automatically generates code that calls personB.getName(), and since Person has a getName() method, 
+    it "just works."
     
+    Scriptlet and Java Casting:
+    In the scriptlet implementation, you're trying to call personB.getEmpID(). However, personB is of type Person, 
+    which doesn't have a getEmpID() method.
+    To overcome this, you explicitly cast personB to Employee before calling getEmpID(). 
+    This casting tells the compiler that personB is actually an Employee and allows you to call the getEmpID() method.
+    
+    Automatic Type Conversion in <jsp:getProperty>:
+    The <jsp:getProperty> action is designed to automatically perform type conversions if necessary. 
+    It uses JavaBeans conventions to determine property types and methods.
+    When you specify property="empID" in <jsp:getProperty>, JSP looks for a method named getEmpID() in the personB object. 
+    If such a method exists, it will be called even if personB is declared as a Person object in the <jsp:useBean> tag.
+    In your case, since personB is an instance of Employee, it has a getEmpID() method, 
+    and <jsp:getProperty> successfully calls it.
+    So, <jsp:getProperty> dynamically determines the object's actual type at runtime and invokes the corresponding 
+    getter method. This behavior allows you to use it in a way that's more abstract and doesn't require explicit casting 
+    in most cases.
+
+    In contrast, scriptlets don't perform this automatic type conversion, so you need to cast the object explicitly to 
+    its actual type to access its methods.
+
+So it's explained that getProperty is set to deal with conversion automatically. 
+Since scriptlets contain regular java code, you'll just have to cast it yourself.
+
+Also had another chat with the AI, it says that getProperty's property attribute is designed for direct attributes, 
+which is why if you want to access an attribute that has its own attributes, you'll have to set the name attribute
+of getProperty so that it's already at that attribute which was its own attributes. But again, it's only 1 level deep.
+
+^ The book also just says this. Don't know why I had to use chatGPT. I could have just understood what I read.
+
+By the way, found the JSP naming convention doc.
+https://www.oracle.com/technical-resources/articles/javase/code-convention.html
+Just CTRL+F "JSP Names".
+Summary, it's camelCase (lowercase starting letter). Avoid verbs as names.
+
+I have JSPs that don't follow this. Moving forward in the next project, I'll keep this in mind.
+
+p.408
+Regarding EL and brackets. A bracket containing a String value if it belongs to an array or list, is coerced into an
+integer. If it can't be coerced, an error is thrown.

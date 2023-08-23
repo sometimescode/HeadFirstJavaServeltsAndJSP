@@ -15,7 +15,11 @@
         <% personA.setName(request.getParameter("userName")); %>
 
         name from person A: 
+        <br>Scriptlet:<br>
         <%= personA.getName() %>
+        <br>Standard Action:<br>
+        <jsp:getProperty name="personA" property="name" />
+
 
         <hr>
 
@@ -31,7 +35,10 @@
         </jsp:useBean>
        
         name from person B: 
+        <br>Scriptlet:<br>
         <%= personB.getName() %>
+        <br>Standard Action:<br>
+        <jsp:getProperty name="personB" property="name" />
 
         <hr>
 

@@ -1,0 +1,28 @@
+Look at the classes and the servlet code given in pages 414 and 415.
+Compose the EL for this output:
+
+Leelu°«s dog Clyde°«s toys are: stick, 
+neighbor°«s cat, and a Barbieè¢Ô doll 
+head
+
+======
+Notepad:
+request attributes set in servlet ->
+person , p
+where p contains the ff values:
+p {
+    name: Leelu
+    dog: {
+        name: Clyde
+        toys: {
+            stick, neighbor's cat, Barbieè¢Ô doll head
+        }
+    }
+}
+======
+
+Answer:
+${person.name}'s dog ${person.dog.name}'s toys are: ${person.dog.toys[0]}, ${person.dog.toys[1]}, and a ${person.dog.toys[2]}
+(x) Forgot that toys is an array of Toy objects, not just Strings, which is what my notes made it seem like.
+Correct answer:
+${person.name}'s dog ${person.dog.name}'s toys are: ${person.dog.toys[0].name}, ${person.dog.toys[1].name}, and a ${person.dog.toys[2].name}

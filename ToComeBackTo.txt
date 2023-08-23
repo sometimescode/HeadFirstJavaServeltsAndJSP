@@ -20,3 +20,13 @@ more recent eyes: i think this would work because a form on submit passes its re
 the jsp. this is 1 step removed. the request would have only worked from from to the servlet. if the form went straight
 to the jsp, then this could work.
 [] when using just type without class, test it out
+[] this isn't in the book. i was sidetracked when i looked up jsp in the 2.0 spec (p.1-7)
+learn more about jspf (jsp fragment, static jsps)
+https://www.oracle.com/technical-resources/articles/javase/code-convention.html
+Just as a note, it's meant to be found inside WEB-INF, which means there's no way for the user to directly access
+the URL at all. But the pages that need it can. My understanding is that fragments are just meant to hold, well, 
+static fragments that will be used by the jsp. The difference here is that the jsp will have more dynamic stuff 
+and just have sections where the static fragments fit in like a puzzle. But I'm not really sure how different it is
+from just using includes. It doesn't really matter if the end user can access the fragment, since it's static anyway.
+[] test out scope of useBean when called from a scriptlet. make a valid javabean object. and call it from a scriptlet.
+see if it works. 

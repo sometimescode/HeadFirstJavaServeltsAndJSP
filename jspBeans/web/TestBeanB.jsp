@@ -18,7 +18,10 @@
         </jsp:useBean>
        
         name from person A: 
+        <br>Scriptlet:<br>
         <%= personA.getName() %>
+        <br>Standard Action:<br>
+        <jsp:getProperty name="personA" property="name" />
 
         <hr>
 
@@ -33,10 +36,18 @@
             <jsp:setProperty name="personB" property="*"/> 
         </jsp:useBean>
        
+        <br>Scriptlet:<br>
         name from person B (Person type): 
         <%= personB.getName() %> <br>
         empID from person B (Person type): 
         <%= ((com.example.model.Employee) personB).getEmpID() %> <br>
+        
+        <br>Standard Action:<br>
+        name from person B (Person type): 
+        <jsp:getProperty name="personB" property="name" /> <br>
+        empID from person B (Person type): 
+        <jsp:getProperty name="personB" property="empID" /> <br>
+
         <hr>
 
         <hr> 
@@ -50,10 +61,18 @@
             <jsp:setProperty name="personC" property="*"/> 
         </jsp:useBean>
        
+        <br>Scriptlet:<br>
         name from person C (Employee type now): 
         <%= personC.getName() %> <br>
         empID from person C (Employee type now): 
         <%= personC.getEmpID() %> <br>
+
+        <br>Standard Action:<br>
+        name from person C (Employee type now): 
+        <jsp:getProperty name="personC" property="name" /> <br>
+        empID from person C (Employee type now): 
+        <jsp:getProperty name="personC" property="empID" /> <br>  
+
         <hr>
 
     </body>
