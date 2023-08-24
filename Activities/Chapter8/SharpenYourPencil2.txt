@@ -1,0 +1,44 @@
+Given the servlet code:
+String num = ¡È2¡É;
+request.setAttribute(¡Ènum¡É, num); 
+Integer i = new Integer(3);
+request.setAttribute(¡Èinteger¡É, i); 
+java.util.ArrayList list = new java.util.ArrayList();
+list.add(¡Ètrue¡É);
+list.add(¡Èfalse¡É);
+list.add(¡È2¡É);
+list.add(¡È10¡É);
+request.setAttribute(¡Èlist¡É, list); 
+
+Give the output of the ff:
+${num > 3} -> ${2 > 3} ? 
+    false
+    (/)
+${integer le 12} -> ${3 < 12} ? 
+    true
+    (/)
+${requestScope[¡Èinteger¡É] ne 4 and 6 le num || false} -> ${3 != 4 && 6 < 2 || false} -> ${true && false || false}
+    false
+    (/) precedence in this case without parens is just evaluating it left to right
+${list[0] || list[¡È1¡É] and true} -> ${true || false && true} 
+    true
+    (/)
+${num > integer} -> ${2 > 3}
+    false
+    (/)
+${num == integer-1} -> ${2 == 3-1} -> ${2 == 2}
+    true
+    (/)
+
+<jsp:useBean class=¡Éfoo.Dog¡É id=¡ÉmyDog¡É >
+ <jsp:setProperty name=¡ÉmyDog¡É property=¡Éname¡É value=¡É${list[1]}¡É />
+</jsp:useBean>
+    myDog {
+        name: "false"
+    }
+${myDog.name and true} -> ${"false" && true}
+    false
+    (/)
+${42 div 0}
+    INFINITY (not going to throw an error, as mentioned in the book)
+    (/)

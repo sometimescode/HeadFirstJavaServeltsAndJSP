@@ -17,6 +17,8 @@ error thrown.
 
 I think this will fail. Just because it looks for Employee type. This is Person. Surely a Person can't be assigned
 to an Employee. This could pass with casting p to Employee.
+(/) it does fail. the book even notes that it's pointless to put a body inside a useBean tag if you have only
+a type and no class. If there's no class, there's no constructor to call.
 
 2) 
     foo.Person p = new foo.Person();
@@ -25,3 +27,4 @@ to an Employee. This could pass with casting p to Employee.
 
 I think this will fail. Just because it looks for Employee type. This is Person. Surely a Person can't be assigned
 to an Employee.
+(/*) it does fail. but in this case Person is abstract, so it can't be instantiated

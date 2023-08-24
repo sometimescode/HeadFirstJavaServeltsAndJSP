@@ -72,3 +72,42 @@ I have JSPs that don't follow this. Moving forward in the next project, I'll kee
 p.408
 Regarding EL and brackets. A bracket containing a String value if it belongs to an array or list, is coerced into an
 integer. If it can't be coerced, an error is thrown.
+
+p.426
+This sees an addition to the project structure.
+For now I'm going to put java classes made to be used as ELs under the model folder. 
+(the book didn't specify a specific folder, just that it'd be under classes)
+And then the tlds will be placed under etc (since the book says it's under WEB-INF in deployment)
+
+p.436
+If you want to make reusable templace pieces, you can create those pieces
+(remember to omit <html><body></body></html>, since it's a fragment expected to be used in a complete page 
+that should already be under those tags).
+Include them in your page using one of two ways:
+    using the include directive -> <%@ include file="[...].jsp or html" %>
+        ^ for static pages, everything is prepared at translation time
+        the source html from the included file is made part of the main page, so only the first visit is burdened
+        since the main page will be translated with the included files already in the page, which is why this is more
+        for static content
+        *a container can possibly automatically update the main page's jsp if it detects that the included file
+        has changed
+    using the include standard action -> <jsp:include page="[...].jsp or html" />
+        ^ for dynamic pages and stuff that you expect to update after deployment, everything is prepared at runtime
+        meaning every time you visit the main page, it will always fetch the included page
+        *this has the added advandace of accepting parameters for dynamic content on the page
+        <jsp:include page="[...].jsp or html">
+            <jsp:param name="nameOfParamToBeUsedAsReferenceInPage" value="theValue" />
+        </jsp:include>
+        and then within the included page, you can reference the request param as usual;
+        here's EL: ${param.nameOfParamToBeUsedAsReferenceInPage}
+
+You can use (but you shouldn't unless you really can't since this should be something handled by the controller,
+not the view) <jsp:forward="..." /> to let the view handle the redirect if in case a certain condition isn't met.
+To do this, you're adding a scriptlet to house the conditional as well 
+(later it's discussed how to do conditionals without needing to use jsp scriptlets).
+
+With regards to the <jsp:forward>, the buffer is cleared BEFORE the forward. This means that any content that's found
+in the page before the <jsp:forward> occurs is not going to show up on the page at all.
+
+Might help (regarding flushing the buffer and clearing the response):
+https://coderanch.com/t/293390/java/clearing-flushing-buffer-committing-response

@@ -1,0 +1,115 @@
+I've made the executive decision that x["a"] is the equivalent of x.a ...
+
+1.
+    A. *only if one value is selected?
+    (/)
+    C. explicitly takes the first index
+    (/)
+2.
+    A. dot operator ver
+    (x) ${initParam.master-email} is an example of where dot operator wouldn't work because of the name used
+    because rather than calling master-email, you're substracting email from initParam.master
+    C. bracket operator ver
+    (/) the right way to do it
+3. 
+    B.
+    <function>
+        <name>
+        <function-class>
+        <function-signature>
+    </function>
+    (/)
+4.
+    C.
+    Will havto clarify. I thought scope meant where it would search, not where it would be placed. 
+    But the latter makes more sense
+    (/)
+    It looks like it is where the value is placed.
+5.  
+    A.
+    (/)
+6.
+    B. classic
+    (/)
+    D. classic+1
+    (/)
+    F. roundabout classic
+    (/)
+7.
+    B. regular conversion
+    (/)
+    C. true... I don't see why a map can't have "5" is its key.
+    (/)
+    E. the correct version of D 
+    (x) trick question. ${header.User-Agent} is already invalid so only ${header["User-Agent"]} will work,
+    they're not equivalent to each other
+    F. true
+    (/)
+8.
+    A. 
+    (/)
+9.
+    B.
+    (/)
+10.
+    A. 
+    (x) it's cookie and not cookies
+    B. initParam in this case refers to context-param
+    (/)
+    C. pageContext is implicit to the EL, but I don't know if directly accessing foo here is
+    correct.
+    (?) pageContext is NOT a map
+    D. 
+    (/)
+    E.
+    (/)
+    G. just because this is too long, I'm going to assume requestURI is a valid property. 
+    i know at least pageContext.request is 
+    (/) lucky
+11.
+    D.
+    (/)
+    E.
+    (/)
+12.
+    A.
+    (x) include directice is for static includes, the question is looking for how to add dynamic content
+    C.
+    (/)
+13.
+    E. At least it doesn't seem like it
+    (/)
+14.
+    E. Because they haven't provided the TLD (tag library descriptor)
+    (/)
+15. 
+    C. Both
+    (/)
+    F. only because it's a list and list take in numerical values, not alphabetical 
+    (/)
+16.
+    B. I believe "or" is a valid substitute for "||" in EL
+    (/)
+17.
+    A. true
+    (/)
+    B. not true. [] is more flexible. can search using other variables
+    (/) additionally, only [] can be used to access List and arrays AND maps whose keys are not well-formed
+    C. false. i think this just fails silently
+    (/)
+    D. true? There are instances where [] makes more sense to use. Not sure when . operator MUST be the one used
+    (x) the dot operator can always be converted to the [] operator
+18.
+    B.
+    (x)
+    C is the correct path, but I just thought that since we're already in myapp, there's no need to repeat
+19.
+    B.
+    (/)
+20.
+    C.
+    (/) 
+    - D is also selected and considered the biggest reason because they already "chose to use a tag file as the
+    solution but also created an EL function ..."
+
+

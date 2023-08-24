@@ -88,3 +88,9 @@ Updated javac:
 javac -d classes "./src/com/example/model/Person.java" "./src/com/example/model/Employee.java" "./src/com/example/model/Dog.java" "./src/com/example/model/ConcretePerson.java"
 2) Additional servlet
 javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/Tester.java" "./src/com/example/web/BracketsNStuff.java"
+
+Updated javac (addition of class, tld, and jsp for dice rolling):
+1) Additional class
+javac -d classes "./src/com/example/model/Person.java" "./src/com/example/model/Employee.java" "./src/com/example/model/Dog.java" "./src/com/example/model/ConcretePerson.java" "./src/com/example/model/DiceRoller.java"
+2) Remains the same
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/Tester.java" "./src/com/example/web/BracketsNStuff.java"

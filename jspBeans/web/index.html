@@ -1,13 +1,24 @@
 <html>
     <body>
+
         <a href="./formA.html">Form from p.393</a>
         <a href="./formB.html">Form from p.395</a>        
         <a href="./formD.html">Form from p.420</a>   
         <a href="./TestBeanC.jsp">Test Person with a Dog (Straight to JSP)</a>  
         <a href="./Brackets.do">Dots and Brackets! (Without the Dots!!!!!!!!!!!!!!!!!!!!!!)</a>
+        <a href="./tagLibTestZone.jsp">Test the Custom Taglib Dice Roller!</a>
+
+        <hr>
+        <a href="./ContactIncludeDirective.jsp">Page using Include Directive for Header</a>
+        <a href="./ContactIncludeStandardAction.jsp">Page using Include Standard Action for Header</a>
+        <hr>
+
+        <hr>
+        <a href="./Hello.jsp">Conditional Forward (checks userName request param)</a>
+        <hr>
 
         <form action="Tester.do" method="post">
-            <input type="SUBMIT" value="This is a doPost in the book. Can't just use it in href as-is because that would need doGet. Don't @ me." />
+            <input type="SUBMIT" value="This is a doPost in the book. Can't just use it in href as-is because that would call doGet instead." />
         </form>
     </body>
 </html>
