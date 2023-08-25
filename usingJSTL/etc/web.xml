@@ -1,0 +1,55 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+ version="2.4">
+
+    <servlet>
+        <servlet-name>Tip of the Day</servlet-name>
+        <servlet-class>com.example.web.TipOfTheDay</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Tip of the Day</servlet-name>
+        <url-pattern>/TotD.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Loops</servlet-name>
+        <servlet-class>com.example.web.Loops</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Loops</servlet-name>
+        <url-pattern>/Loops.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Comments Page</servlet-name>
+        <servlet-class>com.example.web.CIf</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Comments Page</servlet-name>
+        <url-pattern>/Comments.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Car User Preference</servlet-name>
+        <servlet-class>com.example.web.CChoose</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Car User Preference</servlet-name>
+        <url-pattern>/CarUserPref.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CSet and CRemove</servlet-name>
+        <servlet-class>com.example.web.CSet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CSet and CRemove</servlet-name>
+        <url-pattern>/RemainingC.do</url-pattern>
+    </servlet-mapping>
+</web-app>

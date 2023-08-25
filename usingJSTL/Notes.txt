@@ -1,0 +1,62 @@
+You will need 2 jars to use JSTL:
+jstl.jar and standard.jar
+You can pick those two from tomcat 5's bundled jsp project
+C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\webapps\jsp-examples\WEB-INF\lib
+
+JAVAC:
+1) 
+javac -d classes "./src/com/example/model/Tip.java"
+2) 
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/TipOfTheDay.java" 
+
+I think I might be misunderstanding. Looking up "convEntity" doesn't give me anything. They might
+be talking about actually making it in the scenario they gave rather than using something that's 
+already there.
+
+Turns out for stuff related to taglib directive modification on the jsp page, it's best to restart your tomcat 
+after every change to test it out. Because I was making changes and got nothing, thinking it was automatically
+handled because it was only a change on the jsp and I didn't have to recompile the java classes.
+
+ALSO, YOU NEED TO HAVE THOSE TWO JAR FILES IN THE DEPLOYMENT ENVIRONMENT, OTHERWISE YOUR JSP WILL THROW AN ERROR.
+
+JAVAC:
+1) Same as usual
+javac -d classes "./src/com/example/model/Tip.java"
+2) Added Loops.java
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/TipOfTheDay.java" "./src/com/example/web/Loops.java" 
+
+Just a side-note since I'm using forms in the index. 
+The sample URL assumes the form has a single input - a checkbox. 
+(for this I used the vs code extension Live Server to get a page update in real-time as I code)
+
+Checkbox behavior when checked -> gets appended as a param query
+                                    http://127.0.0.1:5500/formTest.html?userType=Member
+                  when unchecked -> will not appear at all
+                                    http://127.0.0.1:5500/formTest.html?                  
+
+p.485
+Note that rather than userType, I'm using param.userType since it made more sense for my implementation.
+No need to run request.setAttribute method since userType is already available as a parameter.
+To verify this, call request.getParameter("userType") from the servlet and log the result.
+As for the forwarded jsp, you get access it via EL's implicit param object - ${param.userType}.
+
+JAVAC:
+1) Same as usual
+javac -d classes "./src/com/example/model/Tip.java"
+2) Added CIf.java
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/TipOfTheDay.java" "./src/com/example/web/Loops.java" "./src/com/example/web/CIf.java"
+
+p.486
+
+JAVAC:
+1) Same as usual
+javac -d classes "./src/com/example/model/Tip.java"
+2) Added CChoose.java
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/TipOfTheDay.java" "./src/com/example/web/Loops.java" "./src/com/example/web/CIf.java" "./src/com/example/web/CChoose.java"
+
+p.489
+JAVAC:
+1) Added Dog.java
+javac -d classes "./src/com/example/model/Tip.java" "./src/com/example/model/Dog.java"
+2) Added CSet.java
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/TipOfTheDay.java" "./src/com/example/web/Loops.java" "./src/com/example/web/CIf.java" "./src/com/example/web/CChoose.java" "./src/com/example/web/CSet.java"

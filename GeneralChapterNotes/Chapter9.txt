@@ -1,0 +1,22 @@
+In order to use JSTL 1.1, you need to include two jar files.
+Luckily they're provided in the lib of tomcat 5's bundled jsp-examples web app.
+    apache-tomcat-5.5.36\webapps\jsp-examples\WEB-INF\lib
+    copy the 2 jar files in there (jstl.jar, standard.jar) into your own \WEB-INF\lib
+
+Will start a new project. I'm just going to name it usingJSTL, which is the thing you see at the upper left
+of p.439 which is the starting page
+
+Some notable things learned from the project for this chapter (the book probably already explained them):
+If you want to use jsp:useBean to introduce an item from a specific scope into your page NEEDS scope to be specified.
+For example, from your servlet, if you do a request.setAttribute and want to use that in your jsp scriptlets, expressions,
+declarations, you'll have to introduce it to the page with jsp:useBean and specify the scope="request". If you don't,
+you'll face an error.
+
+This is not an issue with EL since it doesn't rely on jsp:useBean.
+
+Also it's important to note that EL and JSP have different implicit objects. So always make sure you're referencing 
+the right one because the names are different and it won't prompt you with an error, just give you a blank output
+where the value is expected
+
+The EL's implicit objects will come into play for stuff within ${}.
+The JSP's implicit objects will come into play for stuff within <% %> and its other variants.

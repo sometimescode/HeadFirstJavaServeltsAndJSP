@@ -1,0 +1,4 @@
+Just important bookmarks
+
+JSP Expression Language (EL) review
+    p.434

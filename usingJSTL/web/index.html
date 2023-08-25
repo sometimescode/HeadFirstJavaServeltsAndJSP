@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <hr>
+        <a href="./TotD.do">Tip of the Day (Using an EL function fn:convEntity)</a>
+
+        <hr>
+        <a href="./Loops.do">Looping</a> <br>
+
+        <hr>
+        <form action="./Comments.do" method="post">
+            <fieldset>
+                <legend>Are you a member? If checked, an additional section will be visible in the Comments page.</legend>
+                <input type="checkbox" id="member" name="userType" value="member" checked="checked"/>
+                <label for="member">is Member?</label> <br>
+            </fieldset>
+
+            <input type="submit" value="View Comments Page" />
+        </form>
+
+        <hr>
+        <form action="./CarUserPref.do" method="post">
+            <fieldset>
+                <legend>When buying a car, what is most important to you?</legend>
+                <input type="radio" id="performance" name="mostImportantToYouInCar" value="performance"/>
+                <label for="performance">Performance</label> <br>
+                <input type="radio" id="safety" name="mostImportantToYouInCar" value="safety"/>
+                <label for="safety">Safety</label> <br>
+                <input type="radio" id="maintenance" name="mostImportantToYouInCar" value="maintenance"/>  
+                <label for="maintenance">Maintenance</label> <br>              
+            </fieldset>
+
+            <input type="submit" value="Go To Car User Preference Page" />
+        </form>
+
+        <hr>
+        <a href="./RemainingC.do">c:set and c:remove</a>
+
+    </body>
+</html>
