@@ -86,4 +86,11 @@ To make use of the SimpleTagSupport class, I had to include jsp-api.jar into my 
 to
     C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\usingJSTL\lib\jsp-api.jar
 
-(p. 514)
+JAVAC:
+Moved things around.
+1) Added DiceRoller.java and AdvisoryTagHandler.java under newly created tlds folder
+javac -d classes "./src/com/example/model/Tip.java" "./src/com/example/model/Dog.java" "./src/com/example/model/DiceRoller.java"
+2) Added new cp to build the Custom tags that extend SimpleTagSupport
+javac -cp "./lib/jsp-api.jar" -d classes "./src/com/example/model/AdvisoryTagHandler.java"
+3) Same as usual
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/TipOfTheDay.java" "./src/com/example/web/Loops.java" "./src/com/example/web/CIf.java" "./src/com/example/web/CChoose.java" "./src/com/example/web/CSet.java" "./src/com/example/web/SessionHandler.java" "./src/com/example/web/URLRewriting.java"
