@@ -1,0 +1,34 @@
+1)
+<c:forEach var="movie" items="${movieList}" [[type]]="foo">
+    ${movie}
+</c:forEach>
+(x) It's not type, but varStatus. This is the thing that helps with looping.
+I remember being confused with this one because foo wasn't referenced at all,
+so my mind never went to it being the loop helper.
+
+2)
+<c:if [[test]]="${userPref=='safety'}">
+    Maybe you should just walk...
+</c:if>
+(/)
+
+3)
+<c:set var="userLevel" scope="session" [[default]]="foo" />
+(x) Should be value. 
+At the time probably though userLevel was the variable to use.
+And the blank was like a default in case the var is empty.
+But that's not how c:set is supposed to work at all. 
+This is saying to set a variable called userLevel within the
+session scope. And foo is the value that it wants you to set
+to the variable.
+
+4)
+<c:choose>
+    <c:[[when]] [[test]]="${userPres == 'performance'}">
+        Now you can stop even if you <em>do</em> drive insanely fast.
+    </c:[[when]]>
+    <c:otherwise>
+        Our brakes are the best.
+    </c:otherwise>
+</c:choose>
+(/, /, /, /, /)

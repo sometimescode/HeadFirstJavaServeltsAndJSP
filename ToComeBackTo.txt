@@ -2,15 +2,17 @@ Chapter 5
 [] Tests for Servlet and the Context Listener.
     I will not do tests for servlet/servlet-adjacent stuff.
     I might actually just skip tests altogether. Making some things pointless.
+
 Chapter 7
 [] try if even page declarations won't run when scripting-invalid is true
 [] test to see if 
-<% out.println(request.getParameter(¡Èfirst¡É));
- out.println(request.getParameter(¡Èlast¡É)); %>
+<% out.println(request.getParameter(ï¿½ï¿½firstï¿½ï¿½));
+ out.println(request.getParameter(ï¿½ï¿½lastï¿½ï¿½)); %>
 which is valid, can have its values accessed by below
-<% out.println(application.getInitParameter(¡Èfirst¡É));
- out.println(application.getInitParameter(¡Èlast¡É)); %>
+<% out.println(application.getInitParameter(ï¿½ï¿½firstï¿½ï¿½));
+ out.println(application.getInitParameter(ï¿½ï¿½lastï¿½ï¿½)); %>
  (q 10 of mock exam made me wonder, probably won't run)
+
 Chapter 8
 [] check to see if you can access the request parameters from the jsp
 (from p.379, normally you would request.setAttribute and get that attribute you just set from the jsp using getAttribute,
@@ -30,3 +32,7 @@ and just have sections where the static fragments fit in like a puzzle. But I'm 
 from just using includes. It doesn't really matter if the end user can access the fragment, since it's static anyway.
 [] test out scope of useBean when called from a scriptlet. make a valid javabean object. and call it from a scriptlet.
 see if it works. 
+
+Chapter 9
+[] Test out the EL and JSP stuff that throws Errors/Exceptions on the JSP
+

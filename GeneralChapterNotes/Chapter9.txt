@@ -20,3 +20,111 @@ where the value is expected
 
 The EL's implicit objects will come into play for stuff within ${}.
 The JSP's implicit objects will come into play for stuff within <% %> and its other variants.
+
+(p. 494)
+Three ways to include content now exist:
+a) The include directive
+<%@ include file="Header.html" %>
+Static: adds the content from the value of the file attribute to the curtrent page at translation time.
+
+b) The <jsp:include> standard action
+<jsp:include page="Header.jsp" />
+Dynamic: adds the content from the value of the page attribute to the current page at request time.
+
+c) The <c:import> JSTL tag
+<c:import url="http://www.wickedlysmart.com/skyler/horse.html" />
+Dynamic: like jsp:include but more flexible. can be used outside the web app
+
+(p. 505)
+JSP error pages, one that explicitly has the page directive: <%@ page isErrorPage="true" %>) on it,
+get given a special exception implicit option that's accessible through pageContext: ${pageContext.exception}
+
+REMEMBER:
+In EL, you can divide by zero and get INFINITY as a result. 0 % n is an exception.
+But that's EL. JSP still throws an error when you divide by 0. 
+
+(p. 508)
+Flow control in a <c:catch> works the same way it does in a try block in that nothing else runs inside the
+C:catch body after the exception is thrown.
+
+If you want to use the exception that's caught by c:catch, you can set the var attribute.
+    <c:catch var="myException">
+        
+        (c:catch) Inside the catch... <br>
+        <% int x = 10/0; %>
+        <br> (c:catch) After the catch...
+
+    </c:catch>
+
+    <c:if test="${myException != null}">
+        There was an exception: ${myException.message} <br>
+    </c:if>
+
+There is one con here in that you have no way of accessing the myException var inside the c:catch block.
+You only have access to it AFTER.
+It's better to think of the c:catch as more like a try block than a catch block in normal java code.
+
+(p. 513)
+To make use of the SimpleTagSupport class, I had to include jsp-api.jar into my project's lib folder. I took it from Tomcat.
+    C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\jsp-api.jar
+to
+    C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\usingJSTL\lib\jsp-api.jar
+
+CUSTOM TAGS (what is being done now) is not the same as EL functions (what we did last chapter with the DiceRoller class, 
+which is also found here)
+
+(p. 519)
+Given 
+    <%@ taglib prefix=¡Émine¡É uri=¡ÉrandomThings¡É%>
+within the JSP page, 
+prior to JSP 2.0 (what we're doing now), this was how they mapped a taglib uri to a TLD file
+
+<web-app>
+...
+ <jsp-config>
+ <taglib>
+ <taglib-uri>randomThings</taglib-uri>
+ <taglib-location>/WEB-INF/myFunctions.tld</taglib-location>
+ </taglib>
+ </jsp-config>
+</web-app>
+
+Now, this isn't necessary because it matches the <uri> set in the TLD and the JSP.
+JSP 2.0 should still be able recognize this block though if it exists.
+If in case uri is not set in the DD, what the container does is it will try and 
+gets the tld from the uri given in the JSP's taglib directive.
+
+(p. 520)
+Talks about possible locations for the TLD file. I think for now I'm going to go with
+having them under WEB-INF and in their own folder called tlds.
+
+(p. 529)
+Regarding question 1's D option. I asked chatgpt about it. Next chapter is supposed to focus 
+on this part, so hopefully when I get there this'll all be clarified. 
+
+For reference
+In JSP (JavaServer Pages), there are two main types of custom tags: Simple Tags and Classic Tags. Additionally, there are Tag Files, which serve a similar purpose but are declared differently. Let's break down the differences between these concepts:
+
+1. Simple Tags and Classic Tags:
+Simple Tags: Simple Tags are a newer and simpler way to create custom tags in JSP. They involve defining a Java class that extends javax.servlet.jsp.tagext.SimpleTagSupport. These tags are easier to create and maintain compared to Classic Tags.
+Simple Tags allow you to write custom tag logic directly in Java, without needing to define tag handlers in a Tag Library Descriptor (TLD) file. You can use the <jsp:attribute> standard action to pass attributes to Simple Tags.
+Classic Tags: Classic Tags, also known as "JSP 1.2-style custom tags," are an older way of creating custom tags in JSP. They require defining a tag handler class in Java and declaring the tags in a Tag Library Descriptor (TLD) file.
+Classic Tags are more complex to create because you need to write both the tag handler class and the TLD file. However, they offer greater flexibility and can be used for more advanced scenarios compared to Simple Tags.
+
+2. Tag Files:
+Tag Files: Tag Files are another way to create custom tags in JSP, and they are different from both Simple and Classic Tags. Tag Files are essentially fragments of JSP code encapsulated in a .tag file. These files have a .tag extension and contain custom tag logic.
+Unlike Simple and Classic Tags, you don't need to define Java classes or TLD files for Tag Files. Instead, you write the custom tag logic directly in the .tag file using standard JSP syntax. Tag Files are typically easier to create than Classic Tags and provide better separation of concerns compared to writing Java code in JSP.
+
+3. TLD Files:
+TLD Files: TLD files (Tag Library Descriptor files) are XML files that declare custom tags. They are used to define the custom tags, their attributes, and other metadata. TLD files are associated with Classic Tags and Simple Tags.
+Classic Tags require TLD files to declare the custom tags and their corresponding Java tag handlers. Simple Tags, on the other hand, do not require TLD files because they define the tag logic directly in Java code.
+
+In summary:
+Simple Tags: Defined in Java code by extending javax.servlet.jsp.tagext.SimpleTagSupport. No TLD file is needed for declaration.
+Classic Tags: Defined in Java code with a TLD file that declares the custom tags and their tag handlers.
+Tag Files: Fragments of JSP code encapsulated in .tag files, providing a way to create custom tags directly in JSP syntax.
+TLD Files: XML files used to declare custom tags and their attributes, primarily associated with Classic Tags but not used for Simple Tags.
+
+Regarding the statement in your mock exam, it's correct that TLD files are typically used for Classic Tags, but it's not entirely true that TLD files are "NOT used to declare Tag Files." While TLD files are not required for Tag Files, you can still use TLDs to provide tag documentation and attribute descriptions for Tag Files, although it's less common. Tag Files usually don't have their own dedicated TLDs. 
+
+

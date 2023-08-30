@@ -60,3 +60,30 @@ JAVAC:
 javac -d classes "./src/com/example/model/Tip.java" "./src/com/example/model/Dog.java"
 2) Added CSet.java
 javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/TipOfTheDay.java" "./src/com/example/web/Loops.java" "./src/com/example/web/CIf.java" "./src/com/example/web/CChoose.java" "./src/com/example/web/CSet.java"
+
+p. up to 499
+JAVAC:
+1) Same as usual
+javac -d classes "./src/com/example/model/Tip.java" "./src/com/example/model/Dog.java"
+2) Added URLRewriting.java, SessionHandler.java
+javac -cp "./lib/servlet-api.jar;./classes" -d classes "./src/com/example/web/TipOfTheDay.java" "./src/com/example/web/Loops.java" "./src/com/example/web/CIf.java" "./src/com/example/web/CChoose.java" "./src/com/example/web/CSet.java" "./src/com/example/web/SessionHandler.java" "./src/com/example/web/URLRewriting.java"
+
+To run the newer additions URL Rewriting on the servlet and jstl side and SessionHandler (which I'm not sure is even being used), I just did a quick
+disabling of
+Allow sites to save and read cookie data (recommended)
+from edge://settings/content/cookies
+I'm running edge if you couldn't tell. Won't work on your other browsers.
+You will know if the url rewriting worked if it follows the same structure below (with the jsessionid appended to the URL)
+http://localhost:8080/using-jstl/inputComments.jsp;jsessionid=E17C9E84B851C4068E632FFB04C2371D
+
+(p. 511)
+This talks about TLD and then reintroduces some stuff that we've already made. But it also adds onto it.
+For now will just use the myFunctions.tld name for the tld file since that's what I used in the previous project that had a custom tld.
+
+(p. 513)
+To make use of the SimpleTagSupport class, I had to include jsp-api.jar into my project's lib folder. I took it from Tomcat.
+    C:\Users\reesa\OneDrive\Documents\Stack\apache-tomcat-5.5.36\common\lib\jsp-api.jar
+to
+    C:\Users\reesa\OneDrive\Desktop\Playground\HFServletsAndJsp\usingJSTL\lib\jsp-api.jar
+
+(p. 514)

@@ -1,0 +1,79 @@
+1)
+    A. false, must be direct subdirectory level, so only one deep
+    (x) This is the only one that's true!
+    B. false, this is done at the DD level
+    (/)
+    C. TRUE!
+    (x) False. They're valid if it's a JAR file, not WAR. You got pranked.
+    D. Define simple and classic?
+    A tld is a taglib definition...
+    Tld files are not used to declare Tag Files
+    TRUE? I don't know. Even the web.xml doesn't look
+    for some sort of config for the tlds. What exactly is a tag file?
+    (x) False. Tag files may be declared in a TLD (but it's rare apparently)
+2)
+    A. no, c is the standard prefix for "core" 
+    (/)
+    B. don't think this exists
+    (/)
+    C. this one!
+    (/)
+    D. something exists for tokens, but not sure if this is the right name
+    (/) it is correct. It is forTokens
+    E. this is a jsp conditional tag, not jstl, I think 
+    (/)
+    F. this is a jsp conditional tag, not jstl, I think
+    (/)
+    ^ looked E and F up. They're familiar because of Struts 1. 
+    I think this is something made for Struts 1. I remember reading somewhere
+    that these were made to be reusable for projects outside of struts.
+3)
+    D.
+    (/)
+4)
+    Person {
+        address : {
+            street1,
+            street2,
+            city,
+            stateCode,
+            zipCode
+        }
+    }
+
+    session {
+        customer : Person instance
+    }
+
+    Could be tricky because might mix EL and JSP implicit objects
+    A. seems correct
+    (x) EL does not permit assignment
+    B. seems correct. target is meant to point to an object, not a literal
+    (/)
+    C. seems correct as well...
+    (x) var isn't meant to work in conjuction with target, where target accepts a runtime value,
+    var does not. you also can't use property with val, so this is doubly wrong
+    D. seems correct...
+    (/)
+5)
+    tag1 = JSP
+    tag2 = empty
+    tag3 = scriptless
+
+    B.
+    (/)
+    - C and E are also valid answers.
+6)
+    A. okay
+    (/)
+    B. okay
+    (/)
+    C. no
+    (/)
+    D. okay
+    (/)
+    E. okay
+    (x) This is a JSP standard action, and not a custom tag.
+7)
+    B.
+    (/)

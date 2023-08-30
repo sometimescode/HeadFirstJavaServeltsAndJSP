@@ -1,0 +1,69 @@
+[Fill in the blanks (_____) ]
+
+relevant tld snippet:
+    <taglib ...>
+    ...
+    <uri>randomThings</uri>
+    <tag>
+    <description>random advice</description>
+    <name>advice</name>
+    <tag-class>foo.AdvisorTagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+    <name>user</name>
+    <required>true</required>
+    <rtexprvalue>_____</rtexprvalue>
+    </attribute>
+    </tag>
+
+relevant JSP:
+
+    <html><body>
+    <%@ taglib prefix=”mine” uri=”_____”%>
+    Advisor Page<br>
+    <_____:_____ _____=”${foo}” />
+    </body></html>
+
+relevant tag handler class:
+
+void doTag() {
+ 
+}
+void set_____ (String x) {
+ 
+}
+
+Answers:
+relevant tld snippet:
+    <taglib ...>
+    ...
+    <uri>randomThings</uri> (/)
+    <tag>
+    <description>random advice</description>
+    <name>advice</name> (/)
+    <tag-class>foo.AdvisorTagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+    <name>user</name> (/)
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue> (/)
+    </attribute>
+    </tag>
+
+relevant JSP:
+
+    <html><body>
+    <%@ taglib prefix=”mine” uri=”randomThings”%> (/)
+    Advisor Page<br>
+    <mine:advice user=”${foo}” /> (/)
+    </body></html>
+
+relevant tag handler class:
+
+void doTag() {
+    // code 
+}
+
+void setUser (String x) { (/)
+    //code
+}

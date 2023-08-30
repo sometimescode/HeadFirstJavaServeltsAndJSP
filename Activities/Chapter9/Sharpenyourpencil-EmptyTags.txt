@@ -1,0 +1,19 @@
+Three different ways to invoke a tag that must have an empty body
+
+Assuming a tld exists with uri set to randomTags.
+
+<%@ taglib prefix="test" uri="randomTags" %>
+
+Assuming randomTags has a taglib advice
+Assuming advice takes in a String called user
+Assuming there's a variable called "tstVal"
+available in the pageContext.
+
+1) Using EL 
+    <test:advice user="${tstVal}"/>
+2)
+    <test:advice>
+        <jsp:attribute name="user">${tstVal}</jsp:attribute>
+    </test:advice>
+3)
+    <test:advice user="<%= tstVal %>" />
