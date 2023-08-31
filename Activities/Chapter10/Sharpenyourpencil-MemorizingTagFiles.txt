@@ -1,0 +1,13 @@
+1) 
+    <%@ attribute name="title" require="true" rtexprvalue="true" %>
+2)
+    <%@ tag body-content="empty" %>
+3)
+    under
+        directly under web-inf
+        tags
+        tags > more tags
+        directly under meta-inf
+        jar -> meta-inf > tags
+        jar -> meta-inf > tags > myTags
+        jar ->meta-inf > TLDs (if in jar file)
