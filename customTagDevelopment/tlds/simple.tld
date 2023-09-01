@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" 
+version="2.0">
+
+    <tlib-version>1.2</tlib-version>
+    <uri>simpleTags</uri>
+    <tag>
+        <description>worst use of a custom tag</description>
+        <name>simple1</name>
+        <tag-class>com.example.model.SimpleTagTest1</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    
+    <tag>
+        <description>marginally better use of a custom tag</description>
+        <name>simple2</name>
+        <tag-class>com.example.model.SimpleTagTest2</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>custom tag where tag handler sets the attribute found in the passed body content</description>
+        <name>simple3</name>
+        <tag-class>com.example.model.SimpleTagTest3</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>performing loops using the same passed body content as table row and data</description>
+        <name>simple4</name>
+        <tag-class>com.example.model.SimpleTagTest4</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>a variation of simple4, now with tag attributes and custom Movie object</description>
+        <name>simple5</name>
+        <tag-class>com.example.model.SimpleTagTest5</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>movieList</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>tag to test SkipPageException()</description>
+        <name>simple6</name>
+        <tag-class>com.example.model.SimpleTagTest6</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <!-- Classic Tags  -->
+    <tag>
+        <description>ludicrous use of a Classic tag</description>
+        <name>classicOne</name>
+        <tag-class>com.example.model.Classic1</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <description>like above but now using two methods</description>
+        <name>classicTwo</name>
+        <tag-class>com.example.model.Classic2</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <!-- Comparison  -->
+    <tag>
+        <description>showing body using Simple Tag</description>
+        <name>simpleTagBody</name>
+        <tag-class>com.example.model.SimpleTagTest</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>showing body using Classic Tag</description>
+        <name>classicTagBody</name>
+        <tag-class>com.example.model.ClassicTest</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    
+</taglib>

@@ -1,0 +1,42 @@
+Try to mimic the ff:
+public void doTag() throws JspException, IOException { 
+ String[] movies = {“Spiderman”, “Saved!”, “Amelie”};
+ for(int i = 0; i < movies.length; i++) {
+ getJspContext().setAttribute(“movie”, movies[i]); 
+ getJspBody().invoke(null);
+ }
+}
+=============================================================
+// package and imports
+public class MyIteratorTag extends TagSupport {
+ 
+    JSPWriter out;
+    String[] movies = {“Spiderman”, “Saved!”, “Amelie”};
+    int counter = 0;
+
+ public int doStartTag() throws JspException {
+    out = pageContext.getOut();
+
+    try {
+        //
+    } catch (IOException ex) {
+        throw new JspException("IOException- " + ex.toString());
+    }
+
+    return EVAL_BODY_INCLUDE;
+ }
+
+ public int doAfterBody() throws JspException {
+    if(counter < movies.length) {
+        pageContext.setAttribute("movie", movies[counter]);
+        counter++;
+        return EVAL_BODY_AGAIN;
+    }
+ }
+ 
+ public int doEndTag() throws JspException {
+    return EVAL_PAGE;
+ }
+
+}
+

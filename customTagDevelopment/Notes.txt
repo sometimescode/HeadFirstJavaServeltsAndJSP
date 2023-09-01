@@ -1,0 +1,41 @@
+JAVAC COMMANDS:
+1) 
+javac -cp "./lib/jsp-api.jar" -d classes "./src/com/example/model/SimpleTagTest1.java"
+
+JAVAC COMMANDS:
+1)
+javac -cp "./lib/jsp-api.jar" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java"
+
+JAVAC COMMANDS:
+1)
+javac -cp "./lib/jsp-api.jar" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java"
+
+JAVAC COMMANDS:
+1) Added Movie.java POJO
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added SimpleTagTest5
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added SimpleTagTest5
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added Classic1
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added Classic2
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added ClassicTest, SimpleTagTest
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java"

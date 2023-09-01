@@ -1,0 +1,31 @@
+Imagine a tag 
+<table>
+<myTags:simple4>
+ <tr><td>${movie}</td></tr>
+</myTags:simple4>
+</table>
+
+========================================
+I want to output lines:
+Monsoon Wedding
+Saved!
+Fahrenheit 9/11
+========================================
+Write the doTag for it.
+
+public void doTag() throws JspException, IOException {
+    getJspBody().invoke(null);
+}
+
+
+Answer:
+WRONG! This would only print <tr><td>${movie}</td></tr> and "movie" doesn't exist yet.
+
+What you want is 
+public void doTag() throws JspException, IOException {
+    String[] movies = {"Monsoon Wedding", "Saved!", "Fahrenheit 9/11"};
+    for(int i = 0; i < movies.length; i++) {
+        getJspContext.setAttribute("movie", movies[i]);
+        getJspBody().invoke(null);
+    }
+}

@@ -1,0 +1,6 @@
+It looks like it'll work no problem.
+
+Answer: WRONG!
+doAfterBody() runs only after the body has already been processed once.
+So you actually need to include the set-up for the loop in the doStartTag as well, not just within the
+doAfterBody.

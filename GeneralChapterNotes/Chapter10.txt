@@ -31,4 +31,21 @@ frustration and hair loss.
 (p. 546)
 Tag files implement the tag functionality with another page (using JSP).
 Tag handlers implement the tag functionality with a special Java class.
-Tag handlers come in two flavors: Simple and Classic.
+
+The idea is sort of like if you want to just do a very customized include, you go for tag files.
+If you find yourself needing to use scriplets in your jsp but still want to use tags, you should start
+looking at a custom tag handler. This way the custom tag handler can handle all the java logic necessary without needing
+to clutter the jsp with any scriptlets.
+
+Tag handlers come in two flavors: Simple and Classic (what existed before JSP 2.0).
+Apparently, Simple should cover most of what needs to be done and it's way more convenient.
+Classic is taught at this point since you might run into it and there are rare scenarios where it is the best choice.
+Hopefully those rare scenarios are explained.
+
+
+Something interesting from chatgpt. This is a snippet from me asking it why 
+EL could not recognize the variables created in the scriptlet:
+However, EL (Expression Language) operates differently. 
+EL is used to evaluate expressions within the context of implicit objects, JavaBeans, or other scoped attributes. 
+EL expressions ${} are evaluated at runtime, and they don't directly access or reference Java variables declared 
+within scriptlets.

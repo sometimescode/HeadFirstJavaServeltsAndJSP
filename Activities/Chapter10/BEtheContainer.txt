@@ -1,0 +1,27 @@
+Look at each of the TLD/JSP pairs. 
+Assume that the tag handler prints the body of the tag. Then answer the following questions about each one... 
+What’s the result? If it works, what prints out? 
+Which methods in the custom tag class are invoked?
+
+1)
+TLD has the tag's body-content set to empty. The jsp nests a body within the tag.
+The question is will this output an error or just ignore the nested body.
+Output: I'll say that it'll output an error.
+
+Assuming it works, the ff SimpleTag lifecycle methods are called in the handler:
+doTag(), setJspContext()
+
+Answer: Correct. It outputs an error because the tld requires the body to be empty.
+Also the lifecycle method question was for "if it works" and not "assuming it works", so because it doesn't work 
+then nothing is there.
+
+2)
+TLD has the tag's body-content set to scriptless. The jsp nests a body containing an EL expression doing simple maths.
+
+Output: 6
+Assuming it works, the ff SimpleTag lifecycle methods are called in the handler:
+doTag(), setJspBody(), setJspContext()
+
+Answer: Correct. 
+The lifecycle methods are also correct. 
+The book notes that regarding setParent(), that method is called only when the tag is invoked from within another tag.
