@@ -1,0 +1,9 @@
+Requests:
+
+http://localhost:8080/test/fooStuff/bar/
+Container choice:
+DeployTestFour
+
+http://localhost:8080/test/fooStuff/bar
+Container choice:
+DeployTestTwo

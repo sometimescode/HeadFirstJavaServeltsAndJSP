@@ -1,0 +1,21 @@
+Level 3 
+    WEB-INF
+Level 4 
+    tags, x, classes
+Level 5
+    foo
+Level 6
+    tags, tags
+
+This is very bad. I don't know most of the deeper ones.
+
+ANSWERS:
+
+Level 3 
+    WEB-INF
+Level 4 
+    tags, lib, classes
+Level 5
+    foo
+Level 6
+    bar, META-INF

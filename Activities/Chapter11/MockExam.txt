@@ -1,0 +1,81 @@
+1)
+    A. For servlet params ?
+    (/)
+    D. True!
+    (x) This isn't a thing for context-param. Guess it's time to review.
+    It's:    
+        <context-param>
+            <param-name>breed</param-name>
+            <param-value>Great Dane</param-value>
+        </context-param>
+2)
+    C. (If in a JAR)
+    (/)
+    E.
+    (/)
+    - Book notes that the container will not automatically discover TLDs if they are in
+    /WEB-INF/classes or /WEB-INF/lib
+3)
+    A.
+    (x) WAR stands for Web ARchive.
+    B.
+    Unless this is a weird question where it's talking about META-INF and Manifest file
+    (/)
+    - Book notes that portions of an application cannot be contained in a WAR file; only an entire application
+    can reside within a WAR file
+4)
+    C.
+    (/)
+5)
+    B.
+    (/)
+    C.
+    (x) They didn't even leave a comment.
+6)
+    C.
+    The structure within a WAR file should be the same as the usual project, so I don't see why it is't in the same spot.
+    (/)
+7)
+    A.
+    (x) page directive is not valid in JSP Document, jsp:directive.page should be used
+    D.
+    (/)
+    - JSP Document is NOT THE SAME AS JSP Page in syntax. So this is a misunderstanding on my end.
+8)
+    A.
+    (/)
+    B.
+    (x) Those scoped to the web app use context-param, not init-param. In any case this is consistent with my earlier
+    mistake. 
+    D.
+    (/)
+9)
+    No idea
+    - Book says A and C. Not familiar with J2EE stuff, feels like it's just here to cover a minor part of the exam.
+10)
+    A.
+    (/)
+    - Book says C is also correct, so even if the url-pattern is a directory, it's fine
+    <url-pattern>/controller</url-pattern>
+11)
+    E.
+    (x)
+    - Book says it's C and D. It did mention /META-INF/MANIFEST.MF as a place where library dependencies can be defined
+12)
+    All of them
+    (x)
+    - A and B, because again JSP DOCUMENT is not the same as JSP PAGE
+13)
+    D.
+    (/)
+14)
+    A. True?
+    (/) So true.
+    B. False cause this is how you're meant to do it or maybe rather than WAR it's JAR and this is a trick question
+    (/)
+    C. False? This is probably denjiras
+    (/) Must not override
+    D. False? See C.
+    (/) Must not override
+
+

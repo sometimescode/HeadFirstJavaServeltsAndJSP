@@ -1,0 +1,43 @@
+Format ->
+Resource type
+    Deployment location
+=======================================================================================
+Deployment Descriptor (web.xml)
+    Directly inside WEB-INF (which is directly inside the root of the web app).
+
+Tag Files (.tag or .tagx)
+    Directly inside WEB-INF/tags or a subdirectory of WEB-INF/tags
+    (/) ^ Is if it's not deployed inside a JAR. If it is, tag files must be in META-INF/tags or a subdirectory
+    of META-INF/tags. Tag Files deployed in a JAR must have a TLD in the JAR.
+
+HTML and JSPS (That you want to be directly accessible.)
+    Directly inside the root of the web app.
+    (~) It doesn't have to be directly under the root of the web app. It can be under subdirectories under it, as long as
+    it isn't under WEB-INF (including subdirectories).
+    In a WAR file, they can't be under META-INF (including subdirectories)
+
+HTML and JSPS (That you want to "hide" from direct client access.)
+    Directly inside the WEB-INF
+    (~) Also true for pages under META-INF in a WAR file
+
+TLDs (.tld)
+    Directly inside WEB-INF/TLDs
+    (x) If not inside a JAR, TLD files must be somewhere under WEB-INF or a subdirectory of WEB-INF.
+    If deployed in a JAR, TLD files must be somewhere under META-INF, or a subdirectory of META-INF.
+
+Servlet classes
+    Inside WEB-INF/classes/* where * is the correct package of the class file
+    (/) Servlet classes must be in a directory structure matching the package structure, placed directory
+    under WEB-INF/classes or in the appropriate package directories within a JAR inside WEB-INF/lib.
+
+Tag Handler classes
+    Inside WEB-INF/classes/* where * is the correct package of the class file
+    Maybe have all tag handlers under some sort of unified package
+    (/) All classes used by the web-app (unless they're part of the class libraries on the classpath) must follow
+    the same rules as servlet classes--inside WEB-INF/classes, in a directory structure matching the package
+    (or in the appropriate package directories within a JAR inside WEB-INF/lib)
+
+JAR files 
+    Directly inside WEB-INF/lib
+    (/) JAR files must be inside here.
+

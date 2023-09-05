@@ -1,0 +1,39 @@
+Mappings Legend:
+    a -> <url-pattern>*.do</url-pattern>
+    b -> <url-pattern>/fooStuff/bar</url-pattern>
+    c -> <url-pattern>/fooStuff/*</url-pattern>
+
+Requests:
+
+http://localhost:8080/MapTest/blue.do 
+Container choice: a DeployTestOne
+
+
+http://localhost:8080/MapTest/fooStuff/bar 
+Container choice: b DeployTestTwo 
+
+
+http://localhost:8080/MapTest/fooStuff/bar/blue.do 
+Container choice: c DeployTestThree
+
+
+http://localhost:8080/MapTest/fooStuff/blue.do 
+Container choice: c DeployTestThree 
+
+
+http://localhost:8080/MapTest/fred/blue.do
+Container choice: a DeployTestOne 
+
+
+http://localhost:8080/MapTest/fooStuff 
+Container choice: a DeployTestOne
+(x) c DeployTestThree, still matches /fooStuff/* directory pattern
+
+
+http://localhost:8080/MapTest/fooStuff/bar/foo.fo 
+Container choice: c DeployTestThree
+
+
+http://localhost:8080/MapTest/fred/blue.fo 
+Container choice: nothing
+^ 404 NOT FOUND

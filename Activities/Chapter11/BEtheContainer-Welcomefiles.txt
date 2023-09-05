@@ -1,0 +1,25 @@
+THE DD:
+<welcome-file-list>
+ <welcome-file>index.html</welcome-file>
+ <welcome-file>default.jsp</welcome-file>
+</welcome-file-list>
+
+Requests:
+
+http://localhost:8080/MyTestApp/
+Container choice:
+index.html
+
+http://localhost:8080/MyTestApp/registration/
+Container choice: 
+index.html
+
+http://localhost:8080/MyTestApp/search
+Container choice: 
+default.jsp
+
+http://localhost:8080/MyTestApp/registration/newMember/
+Container choice:
+404 NOT FOUND
+    - The behaviour is vendor-specific if welcome-file isn't found for the directory. 
+    Could be 404 or it could show a directory listing for the directory.

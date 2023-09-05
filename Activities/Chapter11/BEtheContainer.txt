@@ -1,0 +1,28 @@
+List what's wrong with the picture.
+
+WEB-INF -> classes
+    not WEB-INF -> lib -> classes
+    because lib is meant for the jar libraries
+    (/)
+
+MyTestApp -> foo.html
+    not MyTestApp -> WEB-INF -> foo.html
+    because foo.html cann't be accessed within WEB-INF and I'm guessing they want to give access to it
+    (~ This is fine if this is what they intend)
+
+WEB-INF -> tags -> Navbar.tag
+    not WEB-INF -> Navbar.tag
+    because tag files should be inside the appropriate directory
+    (/)
+
+WEB-INF -> tags -> Header.tag
+    not WEB-INF -> TDLs -> Header.tag
+    because TDLs is for tdl files, not tag files
+    (/)
+
+Answers (what's missing):
+web.xml must be inside "WEB-INF"
+
+
+
+
