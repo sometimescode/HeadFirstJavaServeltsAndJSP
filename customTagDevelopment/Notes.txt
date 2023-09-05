@@ -39,3 +39,50 @@ JAVAC COMMANDS:
 javac -d classes "./src/com/example/model/Movie.java"
 2) Added ClassicTest, SimpleTagTest
 javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added SimpleTagIteration, ClassicTagIteration
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java" "./src/com/example/model/SimpleTagIteration.java" "./src/com/example/model/ClassicTagIteration.java"
+
+A couple of things I need to note down once this all is done. Need to output a list of key differences 
+between Classic and Simple because everything is blending into one massive illusion, and I do not have the capabilities to
+see through massive illusions at the moment.
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added SelectTagHandlerMS.java
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java" "./src/com/example/model/SimpleTagIteration.java" "./src/com/example/model/ClassicTagIteration.java" "./src/com/example/taglib/SelectTagHandlerMS.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added SelectTagHandlerBS.java
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java" "./src/com/example/model/SimpleTagIteration.java" "./src/com/example/model/ClassicTagIteration.java" "./src/com/example/taglib/SelectTagHandlerMS.java" "./src/com/example/taglib/SelectTagHandlerBS.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added SelectTagHandlerBSWithDynamicAttributes.java
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java" "./src/com/example/model/SimpleTagIteration.java" "./src/com/example/model/ClassicTagIteration.java" "./src/com/example/taglib/SelectTagHandlerMS.java" "./src/com/example/taglib/SelectTagHandlerBS.java" "./src/com/example/taglib/SelectTagHandlerBSWithDynamicAttributes.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added NestedLevelTag.java
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java" "./src/com/example/model/SimpleTagIteration.java" "./src/com/example/model/ClassicTagIteration.java" "./src/com/example/taglib/SelectTagHandlerMS.java" "./src/com/example/taglib/SelectTagHandlerBS.java" "./src/com/example/taglib/SelectTagHandlerBSWithDynamicAttributes.java" "./src/com/example/taglib/NestedLevelTag.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added MyClassicParent.java, SimpleInner.java
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java" "./src/com/example/model/SimpleTagIteration.java" "./src/com/example/model/ClassicTagIteration.java" "./src/com/example/taglib/SelectTagHandlerMS.java" "./src/com/example/taglib/SelectTagHandlerBS.java" "./src/com/example/taglib/SelectTagHandlerBSWithDynamicAttributes.java" "./src/com/example/taglib/NestedLevelTag.java" "./src/com/example/taglib/MyClassicParent.java" "./src/com/example/taglib/SimpleInner.java"
+
+JAVAC COMMANDS:
+1) 
+javac -d classes "./src/com/example/model/Movie.java"
+2) Added Menu.java, MenuItem.java
+javac -cp "./lib/jsp-api.jar;./classes" -d classes "./src/com/example/model/SimpleTagTest1.java" "./src/com/example/model/SimpleTagTest2.java" "./src/com/example/model/SimpleTagTest3.java" "./src/com/example/model/SimpleTagTest4.java" "./src/com/example/model/SimpleTagTest5.java" "./src/com/example/model/SimpleTagTest6.java" "./src/com/example/model/Classic1.java" "./src/com/example/model/Classic2.java" "./src/com/example/model/ClassicTest.java" "./src/com/example/model/SimpleTagTest.java" "./src/com/example/model/SimpleTagIteration.java" "./src/com/example/model/ClassicTagIteration.java" "./src/com/example/taglib/SelectTagHandlerMS.java" "./src/com/example/taglib/SelectTagHandlerBS.java" "./src/com/example/taglib/SelectTagHandlerBSWithDynamicAttributes.java" "./src/com/example/taglib/NestedLevelTag.java" "./src/com/example/taglib/MyClassicParent.java" "./src/com/example/taglib/SimpleInner.java" "./src/com/example/taglib/Menu.java" "./src/com/example/taglib/MenuItem.java"
+

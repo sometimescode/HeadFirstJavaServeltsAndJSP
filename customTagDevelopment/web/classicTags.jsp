@@ -15,7 +15,7 @@
         <mine:classicTwo />
 
         <hr>
-        This is a comparison of Simple vs Classic Tag with a Body.<br>
+        This is a comparison of Simple vs Classic Tag with simple body content.<br>
         Classic: <br>
         <mine:classicTagBody>
             [Passed as Body-Content] This is the body
@@ -24,8 +24,22 @@
         <mine:simpleTagBody>
             [Passed as Body-Content] This is the body
         </mine:simpleTagBody>
+        <br><br>
+        
+        This is a comparison of looping in Simple vs Classic Tag with body content from BE the Container exercise.<br> <br>
+        Simple: <br>
+        <table border="1">
+            <mine:simpleTagIteration>
+                <tr><td>${movie}</td></tr>
+            </mine:simpleTagIteration>
+        </table>
+        <br> Classic: <br>
+        <table border="1">
+            <mine:classicTagIteration>
+                <tr><td>${movie}</td></tr>
+            </mine:classicTagIteration>
+        </table>
         <br>
-
 
     </body>
 </html>

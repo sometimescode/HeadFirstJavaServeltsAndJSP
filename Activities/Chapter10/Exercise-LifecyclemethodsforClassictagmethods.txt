@@ -1,0 +1,68 @@
+                                            BodyTagSupport              TagSupport
+doStartTag()
+    possible return values                  BODY BUFFER, + ->           SKIP_BODY, EVAL_BODY_INCLUDE
+    default return value                    BODY BUFFER                 SKIP_BODY
+    number of times it can be called        1                           1
+    (per tag invocation from a JSP)
+
+                                            BodyTagSupport              TagSupport
+doAfterBody())
+    possible return values                  + ->                        SKIP_BODY, EVAL_BODY_INCLUDE
+    default return value                    EVAL_BODY_INCLUDE           SKIP_BODY
+    number of times it can be called        as many times               as many times
+    (per tag invocation from a JSP)
+
+                                            BodyTagSupport              TagSupport
+doEndTag())
+    possible return values                  + ->                        SKIP_PAGE, EVAL_PAGE
+    default return value                    EVAL_PAGE                   EVAL_PAGE
+    number of times it can be called        1                           1
+    (per tag invocation from a JSP)
+
+                                            BodyTagSupport              TagSupport (Not Applicable, must extend BodyTagSupport)
+doInitBody() and
+setBodyContent()
+    when can they be called                 if doStartTag returns appropriate value
+    number of times it can be called        1
+    (per tag invocation from a JSP)
+
+
+
+ANSWERS:
+                                            BodyTagSupport              TagSupport
+doStartTag()
+    possible return values                 `SKIP_BODY,                  SKIP_BODY, 
+                                            EVAL_BODY_INCLUDE,          EVAL_BODY_INCLUDE 
+                                            EVAL_BODY_BUFFERED                            
+    
+    default return value                    EVAL_BODY_BUFFERED          SKIP_BODY                    
+    
+    number of times it can be called        Exactly once                Exactly once
+    (per tag invocation from a JSP)
+=====================================================================================================
+                                            BodyTagSupport              TagSupport
+doAfterBody())
+    possible return values                  SKIP_BODY,                  SKIP_BODY,
+                                            EVAL_BODY_AGAIN             EVAL_BODY_AGAIN      
+    
+    default return value                   SKIP_BODY                    SKIP_BODY
+    
+    number of times it can be called       Zero to many                 Zero to many
+    (per tag invocation from a JSP)
+=====================================================================================================
+                                            BodyTagSupport              TagSupport
+doEndTag())
+    possible return values                  SKIP_PAGE,                  SKIP_PAGE,
+                                            EVAL_PAGE                   EVAL_PAGE
+    
+    default return value                    EVAL_PAGE                   EVAL_PAGE
+    
+    number of times it can be called        Exactly once                Exactly once       
+    (per tag invocation from a JSP)
+=====================================================================================================
+                                            BodyTagSupport              TagSupport (Not Applicable, must extend BodyTagSupport)
+doInitBody() and
+setBodyContent()
+    when can they be called                 Exactly once, and ONLY if   NEVER!
+    number of times it can be called        doStartTag() returns
+    (per tag invocation from a JSP)         EVAL_BODY_BUFFERED

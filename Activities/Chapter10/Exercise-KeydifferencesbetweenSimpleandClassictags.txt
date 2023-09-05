@@ -1,0 +1,87 @@
+Tag interfaces
+    Simple tags:
+        not sure how to answer
+    Classic tags:       
+        not sure how to answer
+Support implementation classes
+    Simple tags:
+        SimpleTagSupport
+    Classic tags:
+        TagSupport
+Key lifecycle methods that YOU might implement
+    Simple tags:
+        doTag
+    Classic tags:
+        doStartTag, doAfterBody, doEndTag
+How you write to the response output
+    Simple tags:
+        getJspContext().getOut().print()
+    Classic tags:
+        getJspContext().getOut().print()
+How you access implicit variables and scoped attributes from a support implementation
+    Simple tags:
+        getJspContext()
+    Classic tags:
+        getJspContext()
+How you cause the body to be processed
+    Simple tags:
+        getJspBody().invoke(null);
+    Classic tags:
+        you must return EVAL_BODY_INCLUDE in doStartTag
+How you case the current page evaluation to STOP
+    Simple tags:
+        this I forgot
+    Classic tags:
+        return SKIP_PAGE in doEndTag()
+
+
+Answer:
+Tag interfaces
+    Simple tags:
+        SimpleTag (extends JspTag)
+    Classic tags:       
+        Tag (extends JspTag)
+        IterationTag (extends Tag)
+        BodyTag (extends IterationTag)
+
+Support implementation classes
+    Simple tags:
+        SimpleTagSupport (implements SimpleTag)
+    Classic tags:
+        TagSupport (implements IterationTag)
+        BodyTagSupport (extends TagSupport, implements BodyTag)
+
+Key lifecycle methods that YOU might implement
+    Simple tags:
+        doTag()
+    Classic tags:
+        doStartTag()
+        doEndTag()
+        doAfterBody()
+        (and for BodyTag--doInitBody() and setBodyContent())
+How you write to the response output
+    Simple tags:
+        getJspContext.getOut().println
+        (no try/catch needed because SimpleTag methods declare IOException)
+    Classic tags:
+        pageContext.getOut().println
+        (wrapped in a try/catch because Classic tag methods do NOT declare the IOException)
+
+How you access implicit variables and scoped attributes from a support implementation
+    Simple tags:
+        with the getJspContext() method that returns a JspContext (which is usually a PageContext)
+    Classic tags:
+        with the pageContext implicit variable--NOT a method like it is with SimpleTag
+
+How you cause the body to be processed
+    Simple tags:
+        getJspBody().invoke(null)
+    Classic tags:
+        return EVAL_BODY_INCLUDE from doStartTag(), or EVAL_BODY_BUFFERED if the class implements BodyTag
+
+How you case the current page evaluation to STOP
+    Simple tags:
+        throw a SkipPageException
+    Classic tags:
+        return SKIP_PAGE from doEndTag()
+

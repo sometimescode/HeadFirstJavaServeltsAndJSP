@@ -45,7 +45,26 @@ Hopefully those rare scenarios are explained.
 
 Something interesting from chatgpt. This is a snippet from me asking it why 
 EL could not recognize the variables created in the scriptlet:
+
 However, EL (Expression Language) operates differently. 
 EL is used to evaluate expressions within the context of implicit objects, JavaBeans, or other scoped attributes. 
 EL expressions ${} are evaluated at runtime, and they don't directly access or reference Java variables declared 
 within scriptlets.
+
+-
+Unlike Simple tag handlers which are never reused, a Classic tag handler can be pooled and reused by the Container.
+This explains why variables are reinitialized inside the doStartTag method to guarantee that the values are always reset.
+
+(p. 604)
+Simple tags can have classic parents and simple tags.
+Classic tags can have classic parents.
+THEY CAN have simple parents, but the book does not cover it. It does point to the TagAdapter class as a means to
+accomplish this.
+
+(p. 608)
+The book has shown that there is a way to get the first instance of an arbitrary ancestory. 
+It just looks up the nested chain until it finds the first instance of the class you are looking for and returns that.
+It's available for both Classic and Simple tags.
+
+From Mock Exam (also probably should note the key differences between the different tag models)
+- Simple tags cannot have a body that includes a JSP expression tag

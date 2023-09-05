@@ -1,0 +1,152 @@
+1)
+    B.
+    (/)
+2)
+    A.
+    (/)
+    D.
+    (/)
+    - E is also correct. But I don't recall it being used in the book.
+    ^ Back from the future. It isn't. This is a Standard Action Tag.
+3)
+    B.
+    (/)
+4)
+    C.
+    (/)
+5)
+    A. It can hold body-content as well.
+    (/) Specifically for the Tag interface
+    B. True.
+    (/)
+    C. False. This an additional possible return value for doStartTag when extending BodyTagSupport
+    (/)
+    D. True? If it's the Tag interface alone just these 2 is probably right.
+    (x) It's not EVAL_BODY but EVAL_BODY_INCLUDE.
+    E. True
+    (/)
+6)
+    A. False. It needs two parameters, the starting point and then the class to look for.
+    (/)
+    B. True  ?
+    (/)
+    C. False ?
+    (/)
+    D. False
+    (x) It's specifically found in TagSupport and SimpleTagSupport
+    E. True.
+    (/)
+    F. False. See E.
+    (/)
+    G. False. See E.
+    (/)
+7)
+    B. True
+    (/)
+    C. True
+    (/)
+    E. Not sure what this means. Will ask chatGPT.
+    - B and C are the answers. jsp:attribute is a standard action that can be used to set an attribute.
+    It's typically found nested within the element.
+8)
+    A. False. Still needs to be under tags folder or a subdirectory under that.
+    (/)
+    B. I'm not sure what .tagx is. False? I mean .tag is true.
+    (x) This one is true. Both .tag and .tagx are valid.
+    C. False. Tag files don't need a TLD outside of them being package in a jar, I think.
+    (/)
+    D. False. It can.
+    (/)
+9)
+    C.
+    (x) B is the correct answer. This tag does not process the buffer that C, return EVAL_BODY_BUFFERED, directs.
+10)
+    A. True.
+    (x) It's on any tag that implements the IteratorTag interface
+    B. False.
+    (/)
+    C. True, assuming they don't SKIP_BODY. I'm not sure if you can actually return a SKIP when like this.
+    (x) doAfterBody() is only called when doStartTag() returns EVAL_BODY_INCLUDE
+    D. False. If SKIP_BODY is being called, then doAfterBody() is pointless.
+    (x) True. This is the only one that's true. So true.
+11)
+    B. If no parent exists, I don't think it'll complain. It'll only start complaining when you try to call a method when the object is null and has none.
+    (/)
+12)
+   Simple tag SimpleTagSupport
+    A. False. I know release method was mentioned before but I'm pretty sure it was related to before a tag is killed off
+    and not immediately after doTag. I could be wrong. I'm not even sure if this was related to Simple or Classic.
+    (/) Simple Tag has no release method though
+    B. True. I think this is the stuff we can access in the doTag anyway.
+    (x) setJspBody is not called if the Simple tag is an empty tag
+    C. True. I think. I hope. I don't know.
+    (/) True. You still don't know.
+    D. I'm lost. Please deliver me to death.
+    - This is false. Also your time will come. I will make sure of it.
+    I need to review the lifecycle of the tags.
+13)
+    C. 
+    - (x) Book says this is invalid because it would find an attribute in page scope before checking request scope.
+    Which I guess is technically true. The question did say "guaranteed to assign the value of the request-scoped
+    attribute param to the local variable p".
+    E. Is this the same? I think so. I will make it a reality. If mistaken, I will make it a reality in a different dimension.
+    (/)
+14)
+    A.
+    (x) method doesn't exist
+    B.
+    (/)
+    C.
+    (/)
+    G.
+    (x)
+    - E is also a correct answer
+15)
+    D.
+    (/)
+16)
+    B.
+    (/)
+17)
+    what can't happen is a classic nested under a simple (unless TagAdapter is used)
+    A. True, as long as it doesn't call the parent
+    (/)
+    B. True
+    (x) Simple Tags cannot have a body that includes a JSP expression tag 
+    C. Looks like it could work. Include is translation.
+    (/) This only works because the included file is a plain html. Included content must also be non-scripting.
+    D. False. I don't think classic tags accept scriptlets. If I'm wrong, I'll be happily wrong. Because I'm confused.
+    (/) Not sure about classic tags accepting scriptlets, but simple tags won't in its body 
+    (and since the classic tag with a scriptlet body is the body of the simple tag, this simply won't do)
+18)
+    A. False. Tag files don't need a TLD.
+    (/)
+    B. False. I think I'm going to stick to scriptlets not being allowed. 
+    (/) Don't know about scritplets in general, but page directive is not available in Tag Files
+    C. False. 
+    (/) Tag attribute and variable directives are not available in JSP pages
+    D. True.
+    (/)
+    E. False. Again, I don't know what .tagx is
+    (x) True. .tag and .tagx are valid file extensions for Tag Files
+    F. True.
+    (/)
+19) 
+    A.
+    (/)
+    C.
+    (x) Can't use page directive in a tag file
+    E.
+    (x) Tag's attribute directive doesn't have value as a valid attribute, only name and type
+20)
+    A.
+    (/)
+21)
+    A.
+    (/) 
+    B.
+    (/)
+22)
+    B.
+
+

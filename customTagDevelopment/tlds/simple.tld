@@ -83,5 +83,62 @@ version="2.0">
         <body-content>scriptless</body-content>
     </tag>
 
+    <tag>
+        <description>iterating using Simple Tag</description>
+        <name>simpleTagIteration</name>
+        <tag-class>com.example.model.SimpleTagIteration</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>iterating using Classic Tag</description>
+        <name>classicTagIteration</name>
+        <tag-class>com.example.model.ClassicTagIteration</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <!-- Nesting -->
+    <tag>
+        <description>getParent nesting check using Classic Tag</description>
+        <name>classicTagNesting</name>
+        <tag-class>com.example.taglib.NestedLevelTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>parent with name attribute for child to access</description>
+        <name>classicParent</name>
+        <tag-class>com.example.taglib.MyClassicParent</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>name</name>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>child to access parent's name attribute</description>
+        <name>simpleInner</name>
+        <tag-class>com.example.taglib.SimpleInner</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <description>parent to test how to have child pass values to parent</description>
+        <name>menu</name>
+        <tag-class>com.example.taglib.Menu</tag-class>
+        <body-content>jsp</body-content>
+    </tag>
+
+    <tag>
+        <description>child to test how to have child pass values to parent</description>
+        <name>menuItem</name>
+        <tag-class>com.example.taglib.MenuItem</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>itemValue</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
     
 </taglib>

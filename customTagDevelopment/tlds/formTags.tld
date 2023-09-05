@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+    <tlib-version>1.2</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>Forms Taglib</short-name>
+    <uri>http://example.com/tags/forms</uri>
+    <description>An example tab library of replacements for the HTML form tags.</description>
+
+    <tag>
+        <description>custom form tag for select (My Solution)</description>
+        <name>selectMS</name>
+        <tag-class>com.example.taglib.SelectTagHandlerMS</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>optionsList</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>                
+    </tag>
+
+    <tag>
+        <description>custom form tag for select (Book's Solution)</description>
+        <name>selectBS</name>
+        <tag-class>com.example.taglib.SelectTagHandlerBS</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>optionsList</name>
+            <type>java.util.List</type>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>  
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+        </attribute>              
+    </tag>
+
+    <tag>
+        <description>custom form tag for select (Book's Solution + Dynamic Attributes)</description>
+        <name>selectBSDA</name>
+        <tag-class>com.example.taglib.SelectTagHandlerBSWithDynamicAttributes</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>optionsList</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+        <dynamic-attributes>true</dynamic-attributes>
+    </tag>
+
+</taglib>
